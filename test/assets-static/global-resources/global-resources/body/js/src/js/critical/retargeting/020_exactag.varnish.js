@@ -39,7 +39,7 @@ lhotse.exactag.varnish = {
     env = win.location.protocol + "//" + host,
     varnishURL =
       lhotse.exactag.varnishURL ||
-      env + "/shoppages-exactag/getPerformanceMarketingData.js",
+      env + "test/shoppages-exactag/getPerformanceMarketingData.js",
     firstChar = varnishURL.substring(0, 1),
     hash = win.location.hash,
     variationId = "",

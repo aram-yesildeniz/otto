@@ -77,7 +77,7 @@ export default class BenefitsLoader {
         const contextDreson = area.contextDreson;
 
         return window.o_util.ajax({
-            "url": `/benefit-presentation/lever/slideshow?dreson=${dreson}&featurePosition=${featurePosition}&teaserPosition=${teaserPosition}&pageContextDreson=${contextDreson}`,
+            "url": `test/benefit-presentation/lever/slideshow?dreson=${dreson}&featurePosition=${featurePosition}&teaserPosition=${teaserPosition}&pageContextDreson=${contextDreson}`,
             "method": "GET"
         }).then(response => {
                 if (response.status === 200) {
