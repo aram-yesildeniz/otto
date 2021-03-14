@@ -1,0 +1,119 @@
+@import "../global/variables";
+@import "../global/mixins";
+@import "../global/config";
+@import '../global/grid';
+
+.karma_brand_promo-container {
+  margin: 16px 8px 32px;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: opacity .18s linear;
+
+  span {
+    display: block;
+  }
+
+  .karma_brand_promo-link-wrapper {
+    display: block;
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    text-decoration: none;
+  }
+
+  .karma_brand_promo-pretext {
+    @include font-size($font100);
+    font-weight: normal;
+    @media (min-width: $large-width) {
+      @include font-size($font125);
+    }
+  }
+
+  .karma_brand_promo-headline {
+    @include font-size($font150);
+    @media (min-width: $large-width) {
+      @include font-size($font225);
+    }
+  }
+
+  .karma_brand_promo-image-container {
+    position: relative;
+  }
+
+  .karma_brand_promo-image {
+    margin-top: 4px;
+    margin-bottom: 32px;
+    display: block;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .karma_brand_promo-logo {
+    position: absolute;
+    background-color: $white;
+    padding: 12px;
+    border-radius: 3px;
+    top: 8px;
+    right: 8px;
+    box-sizing: border-box;
+    max-width: 128px;
+    max-height: 64px;
+    @media (min-width: $large-width) {
+      top: 16px;
+      right: 16px;
+      max-width: 220px;
+      max-height: 80px;
+    }
+  }
+
+  .karma_brand_promo-logo.transparent {
+    background-color: transparent;
+  }
+
+  .karma_brand_promo-cta-container {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    bottom: 16px;
+    @media (min-width: $large-width) {
+      visibility: visible;
+
+    }
+  }
+
+  .karma_brand_promo-cta {
+    @include font-size($font125);
+    color: $white;
+    text-shadow: 0px 1px 8px $black100;
+    text-align: center;
+    width: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .karma_brand_promo-lever-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+
+  .karma_brand_promo-tracking-container {
+    display: none;
+  }
+
+  .karma_brand_promo-lever-container {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity .18s linear;
+  }
+
+  .karma_brand_promo-pixel {
+    position: absolute;
+  }
+}

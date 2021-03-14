@@ -1,0 +1,76 @@
+@import "susy/sass/susy";
+@import "global-frontend-settings/scss/grid";
+@import "global-frontend-settings/scss/variables";
+@import "global-frontend-settings/scss/mixins";
+
+.sp_loginFooterArea {
+
+    margin-bottom: 32px;
+    padding-left: 10px;
+
+    @include susy-breakpoint($breakpoint-large...) {
+        margin-bottom: 0;
+    }
+
+    .sp_loginAreaContainerWithName {
+        display: table;
+        a.sp_loginFooterLink {
+            text-decoration: none;
+        }
+        .sp_loginIcon,
+        .sp_loginAreaNameContainer {
+            display: table-cell;
+        }
+        .sp_loginAreaNameContainer {
+            padding-left: 4px;
+            vertical-align: top;
+            .sp_loginAreaMyAccountHeadline {
+                font-weight: bold;
+            }
+            .sp_loginAreaMyNameOrLoginLink {
+                display: inline-block;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            .sp_loginAreaNotMyName {
+                display: inline;
+                white-space: nowrap;
+                &:before {
+                    content: "(";
+                    display: inline-block;
+                }
+                &:after {
+                    content: ")";
+                    display: inline-block;
+                }
+                @include susy-breakpoint($breakpoint-large...) {
+                    display: block;
+                }
+            }
+        }
+
+        .sp_loginIcon.sp_loggedIn .sp_loginArea {
+            width: 30px;
+        }
+        .sp_loginIcon .sp_loginArea {
+            width: 30px;
+            text-align: center;
+        }
+
+        .sp_loginArea {
+            position: relative;
+            .sp_loginAreaIcon {
+                @include font-size($font300, true);
+            }
+            .sp_loginAreaIconBadge {
+                background-color: $availability-green;
+                left: 16px;
+                position: absolute;
+                top: 17px;
+            }
+
+        }
+    }
+
+}

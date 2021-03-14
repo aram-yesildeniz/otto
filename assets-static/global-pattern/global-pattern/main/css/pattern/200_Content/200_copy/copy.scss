@@ -1,0 +1,21 @@
+/// Abstract class to fortify patterns against other box-models
+%p_basisSettingsBoxSizingOnly {
+    box-sizing: border-box;
+}
+
+.p_copy100,
+.p_copy100--2nd {
+    @extend %p_basisSettingsBoxSizingOnly;
+    @include font-size($font100, true);
+}
+
+.p_copy75,
+.p_copy75--2nd {
+    @extend %p_basisSettingsBoxSizingOnly;
+    @include font-size($font75);
+}
+
+.p_copy100--2nd,
+.p_copy75--2nd {
+    color: $grey400;
+}

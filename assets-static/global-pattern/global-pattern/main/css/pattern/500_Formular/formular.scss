@@ -1,0 +1,504 @@
+.p_form {
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    overflow: hidden;
+
+    @include susy-breakpoint($breakpoint-medium...) {
+        overflow: visible;
+    }
+
+    .p_link100--1st {
+        display: block;
+        padding: 10px 0;
+    }
+}
+
+.p_form__headline {
+    @include font-size($font125);
+    font-family: $sansFontFamily;
+    padding: 9px 0;
+}
+
+.p_form__input-clear-wrapper {
+    position: relative;
+
+    .p_form__input {
+        padding-right: 34px;
+        width: 100%;
+
+        &::-ms-clear {
+            display: none;
+        }
+    }
+
+}
+
+.p_form__input-clear-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: 0 none;
+    padding: 13px 12px 11px 12px;
+    margin: 0;
+    font-size: 1em;
+    color: $grey300;
+
+    // No background color on ios when tapping on the clear button.
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &--hide {
+        display: none;
+    }
+}
+
+.p_form__input,
+.p_form__select,
+.p_form__textarea,
+.p_form__message {
+    // Repeat font-size, since input/p is in danger of being redefined by globals
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    transition: border linear .2s,box-shadow linear .2s;
+    background-color: $white;
+    border: 1px solid $grey300;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    color: $black100;
+    display: block;
+    height: 40px;
+    margin: 0;
+    outline: none;
+    padding: 8px 9px;
+    vertical-align: baseline;
+    width: 100%;
+}
+
+.p_form__input,
+.p_form__select,
+.p_form__textarea {
+    @include font-size($font150, true);
+    @include susy-breakpoint($breakpoint-large...) {
+        @include font-size($font100, true);
+    }
+}
+
+.p_form__select {
+    cursor: pointer;
+    padding: 0 0 0 4px;
+}
+
+/* Workaround for old Android Stock browser that cannot
+ * handle non-white background or round borders and ignores pretty much everything else */
+.p_form__select--androidworkaround {
+    height: 40px;
+    width: 100%;
+}
+
+.p_form__select--androidworkaround--error {
+    color: $error-inverted-color;
+}
+
+.p_form__option {
+    background-color: $white;
+    color: $black100;
+}
+
+.p_form__option[disabled] {
+    color: $disabled-color;
+}
+
+.p_form__textarea {
+    height: 148px;
+}
+
+.p_form__input[type="radio"],
+.p_form__input[type="checkbox"] {
+    box-shadow: 0 1px 0 $grey200 inset, 0 -1px 0 $grey200 inset, -1px 0 0 $grey200 inset, 1px 0 0 $grey200 inset;
+    -webkit-appearance: none;
+    border: none;
+    display: inline-block;
+    float: none;
+    height: 20px;
+    margin-top: 10px;
+    padding: 0;
+    position: relative;
+    vertical-align: top;
+    width: 20px;
+}
+
+.p_form__input--error[type="radio"],
+.p_formGroup__row--error .p_form__input[type="radio"],
+.p_form__input--error[type="checkbox"],
+.p_formGroup__row--error .p_form__input[type="checkbox"] {
+    box-shadow: 0 1px 0 $error-background-color inset, 0 -1px 0 $error-background-color inset, -1px 0 0 $error-background-color inset, 1px 0 0 $error-background-color inset;
+}
+
+.p_form__input[type="radio"]:checked:after {
+    background: $availability-green;
+    border-radius: 50%;
+    content: "\00a0";
+    display: block;
+    height: 10px;
+    left: 5px;
+    position: relative;
+    top: 5px;
+    width: 10px;
+}
+
+.p_form__input[type="radio"] {
+    border-radius: 50%;
+}
+
+.p_form__input[type="checkbox"]:checked:after {
+    border-radius: 0;
+    color: $availability-green;
+    content: "\221a";
+    display: block;
+    font-family: $iconsFontFamily;
+    font-size: 14px;
+    height: 20px;
+    left: 0;
+    line-height: 20px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    width: 20px;
+}
+
+.p_form__input[type="checkbox"] {
+    border-radius: 0;
+}
+
+.p_form__input[type="radio"] + .p_form__label,
+.p_form__input[type="checkbox"] + .p_form__label {
+    display: inline-block;
+    max-width: calc(100% - 25px); // make space for input field, here to make sure this works for IE9+ even when not used in grid
+    padding: 10px 0;
+}
+
+.p_form__label--disabled {
+    color: $grey200;
+    cursor: not-allowed;
+}
+
+.p_form__input[disabled],
+.p_form__select[disabled],
+.p_form__textarea[disabled] {
+    background-color: $grey25;
+    color: $grey200;
+    cursor: not-allowed;
+}
+
+.p_form__label--error,
+.p_formGroup__row--error .p_form__label {
+    color: $error-inverted-color;
+}
+
+.p_form__input--warning,
+.p_formGroup__row--warning .p_form__input,
+.p_form__select--warning,
+.p_formGroup__row--warning .p_form__select,
+.p_form__textarea--warning,
+.p_formGroup__row--warning .p_form__textarea {
+    background-color: $warning-form-color;
+    border-color: $warning-background-color;
+}
+
+.p_form__input--error,
+.p_formGroup__row--error .p_form__input,
+.p_form__select--error,
+.p_formGroup__row--error .p_form__select,
+.p_form__textarea--error,
+.p_formGroup__row--error .p_form__textarea {
+    background-color: $error-form-color;
+    border-color: $error-background-color;
+    color: $error-inverted-color;
+}
+
+// Messages
+.p_form__message {
+    box-shadow: 0 0 9px rgba($black100, 0.2);
+    height: auto;
+    min-height: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.p_form__message--error {
+    background-color: $error-background-color;
+    border-color: $error-background-color;
+    color: $error-font-color;
+}
+
+.p_form__message--hint {
+    background-color: $hint-background-color;
+    border-color: $hint-background-color;
+    color: $hint-font-color;
+}
+
+.p_form__message--warning {
+    background-color: $warning-background-color;
+    border-color: $warning-background-color;
+    color: $warning-font-color;
+}
+
+.p_form__message--success {
+    background-color: $success-background-color;
+    border-color: $success-background-color;
+    color: $success-font-color;
+}
+
+// In S the arrow points to the top
+.p_form__message:after,
+.p_form__message:before {
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+}
+
+///
+/// Creates inner part of css-arrow
+///
+/// @param {String} $modifier-name - name of the modifier added to the message class
+/// @param {String} $background-color - background color of the message bubble
+///
+@mixin form-message-after($modifier-name, $background-color) {
+    .p_form__message#{$modifier-name}:after {
+        border-bottom-color: $background-color;
+
+        @include susy-breakpoint($breakpoint-medium...) {
+            border-right-color: $background-color;
+        }
+    }
+}
+
+@include form-message-after("", $white);
+@include form-message-after(--error, $error-background-color);
+@include form-message-after(--hint, $hint-background-color);
+@include form-message-after(--warning, $warning-background-color);
+@include form-message-after(--success, $success-background-color);
+
+.p_form__message:after {
+    border-width: 9px;
+    left: 19px;
+    margin: 0 0 0 -8px;
+    top: -16px;
+
+    // In M the arrow points to the left
+    @include susy-breakpoint($breakpoint-medium...) {
+        border-bottom-color: transparent;
+        left: -16px;
+        margin: -8px 0 0;
+        top: 19px;
+    }
+}
+
+///
+/// Creates border part of css-arrow
+///
+/// @param {String} $modifier-name - name of the modifier added to the message class
+/// @param {String} $background-color - background color of the message bubble
+///
+@mixin form-message-before($modifier-name, $border-color) {
+    .p_form__message#{$modifier-name}:before {
+        border-bottom-color: $border-color;
+
+        @include susy-breakpoint($breakpoint-medium...) {
+            border-right-color: $border-color;
+        }
+    }
+}
+
+@include form-message-before("", $grey300);
+@include form-message-before(--error, $error-background-color);
+@include form-message-before(--hint, $hint-background-color);
+@include form-message-before(--warning, $warning-background-color);
+@include form-message-before(--success, $success-background-color);
+
+.p_form__message:before {
+    border-width: 8px;
+    left: 20px;
+    margin: 0 0 0 -8px;
+    top: -16px;
+
+    // In M the arrow points to the left
+    @include susy-breakpoint($breakpoint-medium...) {
+        border-bottom-color: transparent;
+        left: -16px;
+        margin: -8px 0 0;
+        top: 20px;
+    }
+}
+
+// START: formGrid
+
+/// @group formGrid
+$formGutterWidth: 20px;
+
+/// @group formGrid
+$formFieldGutterWidth: 15px;
+
+// formfieldGroup
+.p_formFieldGroup {
+    margin-right: -$formFieldGutterWidth;
+    overflow: hidden;
+}
+
+.p_formFieldGroup__field {
+    float: left;
+    padding-right: $formFieldGutterWidth;
+}
+
+.p_formFieldGroup__field--3Of5 {
+    width: span(3 of 5);
+}
+
+.p_formFieldGroup__field--1Of2 {
+    width: span(1 of 2);
+}
+
+.p_formFieldGroup__field--2Of5 {
+    width: span(2 of 5);
+}
+
+.p_formFieldGroup__field--1Of3 {
+    width: span(1 of 3);
+}
+
+.p_formFieldGroup__field--1Of4 {
+    width: span(1 of 4);
+}
+
+.p_formFieldGroup__field--3Of4 {
+    width: span(3 of 4);
+}
+
+// formGroup
+.p_formGroup__row {
+    position: relative;
+
+    // TODO: Remove next 2 blocks if IE8 support is removed
+    .p_form__input[type="radio"],
+    .p_form__input[type="checkbox"] {
+        position: absolute;
+    }
+
+    .p_form__input[type="radio"] + .p_form__label,
+    .p_form__input[type="checkbox"] + .p_form__label {
+        max-width: 100%;
+        padding-left: 25px;
+    }
+}
+
+.p_formGroup:first-child {
+    margin-top: 0;
+}
+
+.p_formGroup__row,
+.p_formGroup {
+    margin-top: 30px;
+}
+
+// with --compact the rows are grouped tighter
+.p_formGroup--compact > .p_formGroup__row {
+    margin-top: 10px;
+}
+
+.p_formGroup .p_formGroup__row:first-child {
+    margin-top: 0;
+}
+
+.p_formGroup__label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+// Message-tooltips
+.p_formGroup__message {
+    margin-top: 15px;
+}
+
+/* Starting with M Grid |label|field| */
+@include susy-breakpoint($breakpoint-medium...) {
+    // This clearfix allows for overflows which the message tooltips need
+    .p_formGroup__row:after {
+        clear: both;
+        content: " ";
+        display: table;
+    }
+
+    // Starting with M every cell has 1/2 width
+    .p_formGroup__label,
+    .p_formGroup__content,
+    .p_formGroup__message {
+        width: span(1 of 2);
+    }
+
+    // Grid without Messages
+    .p_form--noMessages {
+        .p_formGroup__label,
+        .p_formGroup__content {
+            width: 100%;
+        }
+    }
+
+    .p_formGroup__content {
+        float: left;
+    }
+
+    // Messages to the right in a own row
+    .p_formGroup__message {
+        float: left;
+        margin-top: 0;
+        max-height: 40px;
+        padding-left: $formGutterWidth;
+    }
+}
+
+/* Starting with L Grid |label|field|messages| */
+@include susy-breakpoint($breakpoint-large...) {
+    // Starting with L every cell has 1/3 width
+    .p_formGroup__label,
+    .p_formGroup__content,
+    .p_formGroup__message {
+        width: span(1 of 3);
+    }
+
+    // Grid without Messages
+    .p_form--noMessages {
+        .p_formGroup__label,
+        .p_formGroup__content {
+            width: span(1 of 2);
+        }
+
+        // Cell without label
+        .p_formGroup__content--unlabeled {
+            margin-left: span(1 of 2);
+        }
+    }
+
+    // Starting with labels are flush right and bold
+    .p_formGroup__label {
+        font-weight: normal;
+        padding: 10px $formGutterWidth 10px 10px;
+        text-align: right;
+    }
+
+    .p_formGroup__label {
+        float: left;
+    }
+
+    // Starting with L text in grid is 40px high
+    .p_formGroup__content.p_form__text,
+    .p_formGroup__content > .p_form__text {
+        padding: 10px 0;
+    }
+
+    // Cell without label
+    .p_formGroup__content--unlabeled {
+        margin-left: span(1 of 3);
+    }
+}

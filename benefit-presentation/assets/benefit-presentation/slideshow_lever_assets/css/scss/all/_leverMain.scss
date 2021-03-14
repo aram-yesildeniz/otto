@@ -1,0 +1,305 @@
+@import 'config';
+@import 'global-frontend-settings/scss/variables';
+@import 'global-frontend-settings/scss/mixins';
+
+.benefit-main {
+  box-sizing: border-box;
+  overflow: hidden;
+  vertical-align: top;
+  @include font-size($font100);
+  color: $black100;
+  display: table;
+  border-spacing: 2px;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  &__linkLayer {
+    cursor: pointer;
+  }
+
+  &__lever.double .benefit-main__lever__code-box__label {
+    @media #{$l-mq} {
+      display: none;
+    }
+  }
+
+  &__lever.single {
+    width: 100%;
+  }
+
+  &__lever {
+    visibility: visible !important;
+    background-color: $grey25;
+    min-height: 50px;
+    height: 50px;
+    max-height: 50px;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 2px;
+    padding: 2px 8px;
+
+    @media #{$s-and-m-mq} {
+      text-align: left;
+    }
+
+    &--no-scarcity {
+      @media #{$s-and-m-mq} {
+        min-height: 38px;
+        height: 38px;
+        max-height: 38px;
+      }
+    }
+
+    &__wrapper {
+      display: table;
+      table-layout: fixed;
+      margin: auto;
+      height: 100%;
+      width: 100%;
+      text-align: left;
+      font-size: 0; // remove html white spaces -> reset where text needed
+
+      @media #{$xl-mq} {
+        width: 548px !important;
+        max-width: 548px !important;
+      }
+    }
+
+    &__info {
+      position: relative;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+      min-width: calc(100% - 130px);
+      max-width: calc(100% - 130px);
+      border-spacing: 0;
+
+      &__primary {
+        position: relative;
+        display: table-cell;
+        padding-right: 16px;
+        height: 100%;
+        width: 1px;
+        white-space: nowrap;
+
+        &__value {
+          color: $red100;
+          position: relative;
+          display: table-cell;
+          @include font-size($font200);
+          padding-right: 6px;
+          height: 100%;
+          width: max-content;
+
+          @media #{$s-and-m-mq} {
+            @include font-size($font125);
+            font-weight: bold;
+          }
+        }
+
+        &__headline {
+          @include font-size($font175);
+          display: table-cell;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: auto;
+          //max-width: 200px;  // TODO only hardcoded max-width triggers overflow/ellipsis - not very useful
+          height: 100%;
+          font-weight: bold;
+
+          @media #{$s-and-m-mq} {
+            @include font-size($font100);
+          }
+
+          &--arrow {
+            display: none;
+
+            @media #{$s-and-m-mq} {
+              @include font-size($font125);
+              display: inline;
+              padding-right: 8px;
+            }
+          }
+        }
+      }
+
+      &__secondary {
+        position: relative;
+        display: table-cell;
+        @include font-size($font100);
+
+        @media #{$s-and-m-mq} {
+          margin-right: 4px;
+          display: inline-block;
+        }
+
+        &--care {
+          @media #{$s-and-m-mq} {
+            display: none;
+          }
+        }
+
+        &__subline {
+          display: table-cell;
+          height: 100%;
+          white-space: nowrap;
+          @include font-size($font100);
+
+          &--red-alert {
+            color: $red100;
+          }
+
+          @media #{$s-and-m-mq} {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    &__code-box {
+      position: relative;
+      display: block;
+      text-align: right;
+      vertical-align: middle;
+      width: auto;
+      cursor: pointer;
+      top: 10px;
+
+      @media #{$s-and-m-mq} {
+        top: 4px;
+        display: block;
+        float: right;
+      }
+
+      &__value {
+        position: relative;
+        width: max-content;
+        float: right;
+        text-align: center;
+        background-color: $grey300;
+        font-size: 12px;
+        font-family: $sansFontFamily;
+        color: #FFFFFF;
+        font-weight: bold;
+        padding: 2px 4px;
+
+        @media #{$s-and-m-mq} {
+          @include font-size($font75);
+        }
+
+        &--app {
+          background-color: $red100;
+        }
+
+        &--none {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInAndOut {
+  0% {
+    opacity: 0;
+    visibility: visible  }
+  20% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.benefit-main__lever__tooltip {
+  background-color: $black50;
+  opacity: 0;
+  visibility: hidden;
+  @include font-size($font75);
+  color: #FFFFFF;
+  white-space: nowrap;
+  border-radius: 3px;
+  padding: 8px;
+  animation: fadeInAndOut 3s;
+}
+
+.benefit-main__lever__tooltip:after, .benefit-main__lever__tooltip:before {
+  border-style: none;
+}
+
+.benefit {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.benefit_leverMain1,
+.benefit_leverMain2 {
+  background-color: $grey25;
+  padding: 8px;
+  min-height: 70px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+
+  a,
+  > span {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .benefit_leverBox {
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .benefit_leverTxt {
+    vertical-align: middle;
+    padding: 5px 0 5px 0;
+    text-align: center;
+    display: inline-block;
+
+    @media #{$s-and-m-mq} {
+      padding: 5px 0 5px 0;
+      min-height: 30px;
+    }
+  }
+
+  .benefit_leverValue {
+    vertical-align: middle;
+    color: $red100;
+    font-family: $sansThinFontFamily;
+    display: inline-block;
+    font-size: 50px;
+    line-height: 56px;
+    min-height: 56px;
+    padding-right: 12px;
+
+    @media #{$s-and-m-mq} {
+      padding-right: 6px;
+    }
+  }
+
+  .benefit_leverSubline {
+    @include font-size($font100);
+    min-height: 20px;
+    margin-top: 2px;
+  }
+
+  .benefit_leverValue + .benefit_leverTxt {
+    text-align: left;
+  }
+}

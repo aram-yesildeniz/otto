@@ -1,0 +1,13 @@
+.p_flag {
+    $dimension: 30px;
+    box-sizing: border-box;
+    @include font-size($font175, false);
+    background-color: $red100;
+    border-radius: 50%;
+    color: $grey25;
+    font-weight: bold;
+    height: $dimension;
+    line-height: $dimension;
+    text-align: center;
+    width: $dimension;
+}

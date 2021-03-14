@@ -1,0 +1,63 @@
+/// Loader
+/// @group loader
+%p_loader {
+    animation: p_loader-rotate 0.8s infinite linear;
+    font-size: 10px;
+    overflow: hidden;
+    position: relative;
+    text-indent: -9999em;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: rgba($grey200, .5) rgba($grey200, .5) rgba($grey200, .5) $grey200;
+
+    .no-cssanimations & {
+        animation: none;
+        border: none;
+    }
+}
+
+.p_loader100 {
+    @extend %p_loader;
+
+    border-width: 0.3em;
+    height: 20px;
+    width: 20px;
+
+    .no-cssanimations & {
+        background: url("./pattern/600_Status_und_Feedback/100_loader/img/p_loader100.gif") top left no-repeat;
+    }
+}
+
+.p_loader200 {
+    @extend %p_loader;
+
+    border-width: 0.5em;
+    height: 40px;
+    width: 40px;
+
+    .no-cssanimations & {
+        background: url("./pattern/600_Status_und_Feedback/100_loader/img/p_loader200.gif") top left no-repeat;
+    }
+}
+
+.p_loader250 {
+    @extend %p_loader;
+
+    border-width: 0.7em;
+    height: 60px;
+    width: 60px;
+
+    .no-cssanimations & {
+        background: url("./pattern/600_Status_und_Feedback/100_loader/img/p_loader250.gif") top left no-repeat;
+    }
+}
+
+@keyframes p_loader-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

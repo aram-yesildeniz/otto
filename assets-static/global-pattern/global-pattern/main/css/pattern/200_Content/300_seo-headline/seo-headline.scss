@@ -1,0 +1,49 @@
+/// Abstract class to fortify patterns against other box-models
+%p_basisSettingsBoxSizingOnly {
+    box-sizing: border-box;
+}
+
+.p_adviserHeadline100 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.p_adviserHeadline100__headline {
+    @include font-size($font250);
+    color: $red100;
+    display: block;
+    font-family: $sansThinFontFamily;
+}
+
+.p_adviserHeadline100__subheadline {
+    @include font-size($font125);
+    color: $grey400;
+    display: block;
+    font-family: $sansThinFontFamily;
+    padding: 0;
+}
+
+@include susy-breakpoint($breakpoint-large...) {
+    .p_adviserHeadline100__headline {
+        @include font-size($font350);
+    }
+
+    .p_adviserHeadline100__subheadline {
+        @include font-size($font250);
+    }
+}
+
+.p_infoHeadline50 {
+    @extend %p_basisSettingsBoxSizingOnly;
+    font-family: $sansFontFamily;
+    @include font-size($font150);
+    color: $grey400;
+}
+
+.p_infoHeadline100 {
+    @extend %p_basisSettingsBoxSizingOnly;
+    @include font-size($font250);
+    font-family: $sansThinFontFamily;
+    color: $grey400;
+}

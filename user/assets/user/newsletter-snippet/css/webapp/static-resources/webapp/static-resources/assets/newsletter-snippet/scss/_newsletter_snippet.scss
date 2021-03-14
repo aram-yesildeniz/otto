@@ -1,0 +1,117 @@
+.user_system_rwd {
+
+    .us_newsletterSnippet {
+        overflow: hidden;
+    }
+
+    .us_newsletterSnippetLine {
+        border-top: 1px solid $grey200;
+    }
+
+    .us_newsletterSnippetOuterContainer {
+        display: none;
+        @include susy-breakpoint($breakpoint-large...) {
+            margin: 8px 0 4px 0;
+            text-align: center;
+            display: inline-block;
+            @include span(4);
+        }
+    }
+
+    .us_newsletterSnippetInnerContainer {
+        height: 125px;
+    }
+
+    .us_newsletterSnippetImage {
+        @include susy-breakpoint($breakpoint-large...) {
+            width: 100%;
+            height: 125px;
+            background-image: url('../../../img/user/newsletter/001_2016_5_kund_nl_vorteil_470x250px.jpg');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            display: inline-block;
+        }
+    }
+
+    .us_newsletterSnippetForm {
+        @include span(6);
+        overflow: hidden;
+        margin-bottom: 16px;
+
+        @include susy-breakpoint($breakpoint-large...) {
+            @include span(8);
+            margin-bottom: 0;
+        }
+
+        .us_newsletterSnippetHeadline {
+            margin: 8px 0;
+        }
+
+        .us_newsletterSnippetEmail {
+            width: 60%;
+            float: left;
+
+            @include susy-breakpoint($breakpoint-medium...) {
+                width: span(4 of 6);
+            }
+
+            @include susy-breakpoint($breakpoint-large...) {
+                width: span(6 of 8);
+            }
+        }
+        .us_newsletterSnippetButton {
+            width: 40%;
+            display: inline-block;
+
+            @include susy-breakpoint($breakpoint-medium...) {
+                width: span(2 of 6);
+            }
+
+            @include susy-breakpoint($breakpoint-large...) {
+                width: span(2 of 8);
+            }
+        }
+
+        .us_newsletterSnippetLegalTextExpanderLink {
+            @include font-size($font75);
+        }
+
+        .us_newsletterSnippetLegalText {
+            margin-top: 8px;
+            width: span(6 of 6);
+            display: block;
+            height: 0;
+            opacity: 0;
+
+            @include susy-breakpoint($breakpoint-large...) {
+                width: span(6 of 8);
+                opacity: 1;
+                height: 48px;
+
+                .p_textExpander100__toggle {
+                    min-height: 28px;
+                }
+
+                &.p_expander--decrease {
+                    @include susy-breakpoint($breakpoint-large...) {
+                        height: auto;
+                    }
+
+                    &.us_newsletterSnippetLegalTextOpen {
+                        @include susy-breakpoint($breakpoint-large...) {
+                            height: auto;
+                        }
+                    }
+                }
+            }
+
+            &.us_newsletterSnippetLegalTextOpen {
+                transition: all 500ms ease;
+                opacity: 1;
+                height: auto;
+            }
+        }
+
+    }
+
+}

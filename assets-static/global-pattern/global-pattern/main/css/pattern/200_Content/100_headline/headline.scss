@@ -1,0 +1,36 @@
+/// Abstract class to fortify patterns against other box-models
+%p_basisSettingsBoxSizingOnly {
+    box-sizing: border-box;
+}
+
+// START: headline
+.p_headline25 {
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    font-family: $sansFontFamily;
+    font-weight: bold;
+}
+
+.p_headline50 {
+    @extend %p_basisSettingsBoxSizingOnly;
+    font-family: $sansFontFamily;
+    @include font-size($font150);
+}
+
+.p_headline75 {
+    @extend %p_basisSettingsBoxSizingOnly;
+    @include font-size($font200);
+    font-family: $sansFontFamily;
+}
+
+.p_headline100 {
+    @extend %p_basisSettingsBoxSizingOnly;
+    @include font-size($font250);
+    font-family: $sansThinFontFamily;
+}
+
+.p_headline150 {
+    @extend %p_basisSettingsBoxSizingOnly;
+    @include font-size($font350);
+    font-family: $sansThinFontFamily;
+}

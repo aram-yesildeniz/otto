@@ -1,0 +1,19 @@
+// START: availability
+.p_availability {
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    font-weight: bold;
+
+    // color of availability
+    &--available {
+        color: $availability-green;
+    }
+
+    &--notYetAvailable {
+        color: $availability-orange;
+    }
+
+    &--outOfStock {
+        color: $availability-red;
+    }
+}

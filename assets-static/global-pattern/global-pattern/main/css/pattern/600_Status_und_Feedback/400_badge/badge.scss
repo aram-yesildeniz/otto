@@ -1,0 +1,63 @@
+/// @group badge
+
+%p_badgeIconModifier {
+  font-family: $iconsFontFamily;
+  font-style: normal;
+  padding: 0.04rem 0.16rem 0;
+}
+
+%p_badge {
+  @extend %p_basisSettingsBoxSizingOnly;
+  background: $grey400;
+  box-sizing: border-box;
+  color: $white;
+  display: inline-block;
+  letter-spacing: 0.06rem;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.p_badge100 {
+  @extend %p_badge;
+  @include font-size(
+    (
+      font-size: 9px,
+      // only 14px instead of 15, because font is positioned above baseline for some reason
+        line-height: 14px
+    ),
+    true
+  );
+
+  border-radius: 0.5rem;
+  //TODO: Remove top padding if the font ever gets fixed and vertically centeres itself properly
+  padding: 0.04rem 0.3rem 0;
+  font-weight: bold;
+
+  &--icon {
+    font-family: $iconsFontFamily;
+    font-style: normal;
+    padding: 0.04rem 0.16rem 0;
+  }
+}
+
+.p_badge200 {
+  @extend %p_badge;
+  @include font-size(
+    (
+      font-size: 14px,
+      line-height: 22px
+    ),
+    true
+  );
+
+  border-radius: 11px;
+  padding: 0 8px;
+  height: 22px;
+  font-weight: normal;
+
+  &--icon {
+    font-family: $iconsFontFamily;
+    font-style: normal;
+    padding: 0 4px;
+  }
+}

@@ -1,0 +1,17 @@
+@import 'config';
+@import 'global-frontend-settings/scss/grid';
+@import 'global-frontend-settings/scss/mixins';
+@import 'global-frontend-settings/scss/variables';
+
+.benefit_lever {
+  box-sizing: border-box;
+  overflow: hidden;
+  vertical-align: top;
+  @include font-size($font100);
+  color: $black100;
+  visibility:visible !important;
+
+  a, span {
+    text-decoration: none;
+  }
+}

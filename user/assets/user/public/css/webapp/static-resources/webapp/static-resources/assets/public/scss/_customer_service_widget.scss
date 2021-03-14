@@ -1,0 +1,427 @@
+.us_customerServiceWidgetIcon {
+    font-family: "OttoIcons", "Arial", "Helvetica", sans-serif;
+    color: $white;
+    background-color: $service-color;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 55px;
+    font-size: 37px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.csstransforms3d {
+    .user_system_rwd {
+        .us_customerServiceWidgetContainer {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            z-index: 8500;
+
+            .us_customerServiceWidget {
+
+                &.us_customerServiceWidgetHide {
+                    display: none;
+                }
+
+                &.us_customerServiceWidgetOpen {
+                    transform: scale(1, 1);
+                    -webkit-transform: scale(1, 1);
+                    -o-transform: scale(1, 1);
+                    -webkit-transition: all 433ms cubic-bezier(0.22, 0.67, 0.41, 1) 0s;
+                    transition: all 433ms cubic-bezier(0.22, 0.67, 0.41, 1) 0s;
+                }
+
+                &.us_customerServiceWidgetClose {
+                    -webkit-transform: scale(0, 0);
+                    -o-transform: scale(0, 0);
+                    transform: scale(0, 0);
+                    -webkit-transition: all 466ms cubic-bezier(0.48, 0, 0.8, 0.12) 0s;
+                    transition: all 466ms cubic-bezier(0.48, 0, 0.8, 0.12) 0s;
+                }
+
+                .us_customerServiceWidgetIcon {
+                    box-shadow: 0 0 6px rgba(34, 34, 34, 0.3);
+                }
+            }
+
+            .us_customerServiceWidgetPopupMenu {
+                position: absolute;
+                right: 0px;
+                bottom: 76px;
+                cursor: auto;
+                background: $white;
+                border: 1px solid $service-color;
+                border-radius: 3px;
+                box-shadow: 0 0 3px rgba(34, 34, 34, 0.3);
+
+                &:before,
+                &:after {
+                    border-style: solid;
+                    border-width: 15px 8px 0;
+                    content: "";
+                    //display: block;
+                    position: absolute;
+                    right: 18px;
+                    width: 0;
+                    z-index: 1;
+                }
+
+                &:before {
+                    border-color: $service-color transparent;
+                    top: auto;
+                    bottom: -15px;
+                }
+
+                &:after {
+                    border-color: $white transparent;
+                    top: auto;
+                    bottom: -14px;
+                }
+
+                &.us_customerServiceWidgetPopupMenuOpen {
+                    -webkit-transform: scale(1, 1);
+                    -webkit-transform-origin: 91% 115% 0;
+                    -o-transform: scale(1, 1);
+                    -o-transform-origin: 91% 115% 0;
+                    transform: scale(1, 1);
+                    transform-origin: 91% 115% 0;
+                    -webkit-transition: all 433ms cubic-bezier(0.22, 0.67, 0.41, 1) 0s;
+                    transition: all 433ms cubic-bezier(0.22, 0.67, 0.41, 1) 0s;
+                }
+
+                &.us_customerServiceWidgetPopupMenuClose {
+                    -webkit-transform: scale(0, 0);
+                    -webkit-transform-origin: 91% 115% 0;
+                    -o-transform: scale(0, 0);
+                    -o-transform-origin: 91% 115% 0;
+                    transform: scale(0, 0);
+                    transform-origin: 91% 115% 0;
+                    -webkit-transition: all 466ms cubic-bezier(0.48, 0, 0.8, 0.12) 0s;
+                    transition: all 466ms cubic-bezier(0.48, 0, 0.8, 0.12) 0s;
+                }
+
+                &.us_customerServiceWidgetPopupMenuHide {
+                    display: none;
+                }
+
+                .user_customerServiceWidgetLink_L {
+                    display: inline;
+                    @media only screen and (max-height: 450px) and (orientation: landscape) {
+                        display: none;
+                    }
+                }
+                .user_customerServiceWidgetLink_S {
+                    display: none;
+                    @media only screen and (max-height: 450px) and (orientation: landscape) {
+                        display: inline;
+                    }
+                }
+
+                .us_customerServiceWidgetPopupMenuContent {
+                    position: relative;
+                    overflow: hidden;
+                    width: 280px;
+
+                    @media only screen and (max-height: 450px) and (orientation: landscape) {
+                        width: 505px;
+                    }
+
+                    .us_customerServiceWidgetRow {
+                        float: left;
+                        margin-top: 8px;
+                    }
+                    .us_customerServiceWidgetRowFloatable {
+                        padding-top: 10px;
+                    }
+
+                    .us_widget_serviceCall {
+                        margin-left: 16px;
+                        margin-top: 13px;
+                        height: 239px;
+                        width: 264px;
+
+                        @media only screen and (max-height: 450px) and (orientation: landscape) {
+                            width: inherit;
+                        }
+                    }
+
+                    .us_serviceCallNumberContainer {
+                        display: inline-block;
+                        margin-bottom: 10px;
+                        font-size: 13px;
+                        line-height: 18px;
+                    }
+
+                    .us_serviceCallNumber_1,
+                    .us_serviceCallNumber_3,
+                    .us_serviceCallNumber_5 {
+                        margin-left: 10px;
+                    }
+
+                    @media only screen and (max-height: 450px) and (orientation: landscape) {
+                        .us_serviceCallNumber_1,
+                        .us_serviceCallNumber_2,
+                        .us_serviceCallNumber_4 {
+                            margin-left: 30px;
+                        }
+
+                        .us_serviceCallNumber_3 {
+                            margin-left: 0;
+                        }
+
+                        .us_serviceCallNumber_5 {
+                            margin-left: 43px;
+                        }
+                    }
+
+                    .us_serviceCallNumberLabel {
+                        display: block;
+                    }
+
+                    .us_serviceCallNumber {
+                        display: none;
+                        border-bottom: 2px solid $black;
+                        @include font-size($font200);
+                        @include susy-breakpoint($breakpoint-large...) {
+                            display: inline;
+                        }
+                    }
+
+                    .us_serviceCallNumberMulti {
+                        display: none;
+
+                        border-bottom: 1px solid $black;
+                        @include susy-breakpoint($breakpoint-large...) {
+                            display: inline;
+                        }
+                    }
+
+                    .us_serviceCallNumberCallable {
+                        font-size: 13px;
+                        line-height: 18px;
+                        @include susy-breakpoint($breakpoint-large...) {
+                            display: none;
+                        }
+                    }
+
+                    .us_serviceCallPriceHint {
+                        color: $grey300;
+                        font-size: 10px;
+
+                        @media only screen and (max-height: 450px) and (orientation: landscape) {
+                            float: right;
+                            margin-right: 38px;
+                        }
+                    }
+
+                    .us_serviceCallBackLinkSingle {
+                        margin-top: 85px;
+
+                        @media only screen and (max-height: 450px) and (orientation: landscape) {
+                            margin-top: 5px;
+                        }
+                    }
+
+                    .us_serviceCallBackLinkMulti {
+                        margin-top: 8px;
+
+                        @media only screen and (max-height: 450px) and (orientation: landscape) {
+                            margin-top: 0;
+                        }
+                    }
+
+                    .us_customerServiceTypeIcon {
+                        width: 40px;
+                        height: 40px;
+                        background-image: url('../../../img/user/customerServiceWidget/customerServiceWidgetIcon_sprite.png');
+                        background-size: 100% auto;
+                        background-repeat: no-repeat;
+                        float: left;
+                        margin-right: 4px;
+
+                        &.us_icon_serviceCall {
+                            background-position: 0px 0px;
+                        }
+                        &.us_icon_callback {
+                            background-position: 0px -40px;
+                        }
+                        &.us_icon_contactForm {
+                            background-position: 0px -80px;
+                        }
+                        &.us_icon_liveChat {
+                            background-position: 0px -120px;
+                        }
+                        &.us_icon_faq {
+                            background-position: 0px -160px;
+                        }
+                        &.us_icon_feedback {
+                            background-position: 0px -225px;
+                            width: 45px;
+                        }
+                        &.us_icon_consulting {
+                            background-position: 0px -240px;
+                        }
+                    }
+
+                    .us_customerServiceTypeIconText {
+                        height: 40px;
+                        width: 64px;
+                        display: table-cell;
+                        vertical-align: middle;
+                    }
+
+                    .us_customerServiceWidgetButtonContainer {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        font-size: 1rem;
+                        border-left: 1px solid $service-color;
+                        border-bottom: 1px solid $service-color;
+                        padding: 0 8px;
+
+                        overflow: hidden;
+
+                        .us_customerServiceWidgetPopupMenuCloseButton {
+                            float: left;
+                        }
+
+                        .us_customerServiceWidgetButtonSeparator {
+                            float: left;
+                            height: 30px;
+                            width: 1px;
+                            border-left: 1px solid $service-color;
+                            margin: 0 8px;
+                        }
+
+                        .us_customerServiceWidgetCloseButton {
+                            float: left;
+                        }
+                    }
+                    .us_customerServiceWidgetPopupMenuFirstBox {
+                        text-align: left;
+                        width: 65%;
+                        @media only screen and (max-height: 450px) and (orientation: landscape) {
+                            margin-top: 10px;
+                            margin-bottom: 12px;
+                        }
+                    }
+
+                    .us_customerServiceWidgetPopupMenuTextLinkBox {
+                        padding-top: 50px;
+                        height: 84px;
+                        @media only screen and (max-height: 450px) and (orientation: landscape) {
+                            margin-left: 250px;
+                            padding-top: 0px;
+                            height: inherit;
+                        }
+                    }
+                    .us_customerServiceWidgetTextContainer {
+                        float: left;
+                        padding: 10px 0px 10px 16px;
+
+                        @media only screen and (max-height: 450px) and (orientation: landscape) {
+                            width: 250px;
+                            height: 60px;
+                            padding-top: 18px;
+                            border-right: 1px solid $service-color;
+                        }
+
+                    }
+
+                    .us_widgetDividerConvertible {
+                        border-bottom: 1px solid $service-color;
+                        float: left;
+                        width: 100%;
+
+                        @media only screen and (max-height: 450px) and (orientation: landscape) {
+                            display: none;
+                            float: right;
+                        }
+                    }
+                    .us_widgetDivider {
+                        border-bottom: 1px solid $service-color;
+                        width: 100%;
+                    }
+
+                    .us_customerServiceWidgetPopupMenuOuterBox {
+                        overflow: hidden;
+                        padding: 13px 16px 8px 16px;
+                        width: 100%;
+
+                        @media only screen and (max-height: 450px) and (orientation: landscape) {
+                            padding: 6px 0px 12px 14px;
+                            width: inherit;
+                        }
+
+                        .us_customerServiceWidgetPopupMenuInnerBox {
+                            float: left;
+                            width: 120px;
+                            height: 44px;
+                            cursor: pointer;
+
+                            a {
+                                text-decoration: none;
+                            }
+                            span {
+                                text-decoration: none;
+                                display: block;
+
+                                &.user_customerServiceWidgetLink_S {
+                                    display: block;
+                                    @include susy-breakpoint($breakpoint-large...) {
+                                        display: none;
+                                    }
+                                }
+                                &.user_customerServiceWidgetLink_L {
+                                    display: none;
+                                    @include susy-breakpoint($breakpoint-large...) {
+                                        display: block;
+                                    }
+                                }
+                            }
+
+                            &.us_customerServiceWidgetPopupMenuInnerBox_wide {
+                                width: 140px;
+                            }
+
+                            &.us_customerServiceWidgetPopupMenuInnerBox_narrow {
+                                width: 100px;
+                            }
+
+                            &.us_paddingRight {
+                                padding-right: 8px;
+                            }
+
+                            div .us_paddingTop {
+                                padding-top: 4px;
+                            }
+
+                            :hover {
+                                color: $black100;
+                            }
+                        }
+                        &.us_noBorder {
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+
+            .us_customerServiceWidgetLXLNotificationContent {
+                width: 230px;
+                margin: 8px;
+
+                .us_customerServiceWidgetLXLNotificationCloseButton {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

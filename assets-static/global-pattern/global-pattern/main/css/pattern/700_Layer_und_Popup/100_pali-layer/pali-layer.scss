@@ -1,0 +1,295 @@
+// BEGIN: overlay
+/// Size of the close button [x]
+/// @group layer
+$layerCloseSize: 40px;
+
+/// Inner Paddings
+/// @group layer
+$layerTopPaddingS: 16px;
+
+/// @group layer
+$layerRightPaddingS: 8px;
+
+/// @group layer
+$layerBottomPaddingS: 24px;
+
+/// @group layer
+$layerLeftPaddingS: 8px;
+
+/// Bottom and Top Padding equals the ones in S. This assumption is currently hardcoded to save breakpoints.
+/// @group layer
+$layerRightPaddingM: 16px;
+
+/// @group layer
+$layerLeftPaddingM: 16px;
+
+/// All paddings in L and XL are created equal
+/// @group layer
+$layerInnerPaddingLXL: 20px;
+
+// Modal Curtain
+.p_curtain {
+  box-sizing: border-box;
+  @include font-size($font100, true);
+  transition: opacity ease 0.4s;
+  background-color: $black;
+  height: 100%;
+  height: 100vh;
+  left: 0;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9000;
+}
+
+.p_curtain--hidden {
+  opacity: 0;
+}
+
+.p_layer {
+  box-sizing: border-box;
+  @include font-size($font100, true);
+  transform: translateY(0);
+
+  /// bug in libass/bourbon https://github.com/sass/libsass/issues/1645 cat't use transition mixin for transform
+  opacity: 1;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transition: transform 0.4s ease;
+  z-index: 9000;
+
+  .app & {
+    // LHAS-1717: translateZ(0) was added due to the bug in this ticket with reference to https://github.com/twbs/ratchet/issues/679
+    // It must not be added to the generel p_layer class, because translateZ(0) causes blurry effects in IE, Firefox, Chrome....
+    transform: translateY(0) translateZ(0);
+  }
+
+  // Use forcedWidth, because if not the no-mq layer would have get auto width for layer.
+  &.p_layer--forcedWidth {
+    // Ignore forced width in S/M
+    @include susy-breakpoint(0 $large-width - 0.01, $medium-cols) {
+      width: auto !important;
+    }
+  }
+
+  // Make room to the right in M
+  @include susy-breakpoint($medium-width $large-width - 0.01, $medium-cols) {
+    right: $layerCloseSize;
+  }
+
+  // Starting with L 10/12 width and vertically centered
+  @include susy-breakpoint($breakpoint-large...) {
+    transition: opacity 0.4s ease;
+
+    opacity: 1;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    width: span(10);
+  }
+
+  // Starting with XL 8/12 width
+  @include susy-breakpoint($breakpoint-extra-large...) {
+    max-width: 900px;
+    width: span(8);
+  }
+
+  // LHAS-1599: Ensure 60px space at the bottom
+  &:after {
+    position: absolute;
+    content: "";
+    bottom: -60px;
+    height: 60px;
+    width: 1px;
+  }
+}
+
+.p_layer--hidden {
+  @include susy-breakpoint($breakpoint-large...) {
+    transition: opacity 0.4s ease;
+
+    opacity: 0;
+  }
+}
+
+// If no header with a close-button should be displayed
+.p_layer--headerRemoved,
+.p_layer--headerRemovedOnSmallScreens {
+  // move layer to the very right in M/S
+  right: 0;
+
+  // move layer to the very top in S
+  .p_layer__wrapper {
+    top: 0;
+  }
+}
+
+.p_layer--headerRemovedOnSmallScreens {
+  // hide Header in S/M
+  .p_layer__header {
+    display: none;
+  }
+
+  // show header starting with L
+  @include susy-breakpoint($breakpoint-large...) {
+    .p_layer__header {
+      display: block;
+    }
+  }
+}
+
+// Loader-class
+.p_layer__content {
+  .p_loader200 {
+    margin: 50px auto;
+    position: relative;
+  }
+}
+
+// error-messages in the layer
+.p_layer--error {
+  margin: 40px 20px;
+}
+
+.p_layer__header {
+  height: $layerCloseSize;
+
+  &:after {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    clip: rect(5px, 10px, 10px, 5px); // cut part of the shadow away
+    content: "";
+    height: 5px;
+    position: absolute;
+    right: 0;
+    top: 35px;
+    width: 5px;
+  }
+
+  // IN M the header does not need a fixed height
+  @include susy-breakpoint($medium-width $large-width - 0.01, $medium-cols) {
+    height: auto;
+
+    &:after {
+      clip: rect(-5px, 0, 0, -5px); // cut part of the shadow away
+      right: -5px;
+      top: 0;
+    }
+  }
+}
+
+.p_layer__close {
+  background-color: $white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  clip: rect(-5px, 45px, 41px, -5px); // cut part of the shadow away
+  cursor: pointer;
+  display: block;
+  font-family: $iconsFontFamily;
+  @include font-size($font175, false);
+  height: $layerCloseSize + 1px;
+  line-height: $layerCloseSize;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  width: $layerCloseSize;
+  z-index: 1;
+
+  @include susy-breakpoint($medium-width $large-width - 0.01, $medium-cols) {
+    clip: rect(-5px, 45px, 45px, 0); // cut part of the shadow away
+    right: -$layerCloseSize; // In M show the close-button to the right
+  }
+
+  @include susy-breakpoint($breakpoint-large...) {
+    clip: rect(-5px, 45px, 41px, -5px); // cut part of the shadow away
+    right: 0;
+  }
+}
+
+.p_layer__headline {
+  @include font-size($font150);
+  margin: $layerTopPaddingS $layerRightPaddingS $layerTopPaddingS
+    $layerLeftPaddingS;
+
+  @include susy-breakpoint($breakpoint-medium...) {
+    margin: $layerTopPaddingS $layerRightPaddingM $layerTopPaddingS
+      $layerLeftPaddingM;
+  }
+
+  @include susy-breakpoint($breakpoint-large...) {
+    @include font-size($font200);
+    margin: $layerInnerPaddingLXL;
+  }
+}
+
+.p_layer__wrapper {
+  background-color: $white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.p_layer__body {
+  margin: $layerTopPaddingS $layerRightPaddingS $layerBottomPaddingS
+    $layerLeftPaddingS;
+
+  @include susy-breakpoint($breakpoint-medium...) {
+    margin: $layerTopPaddingS $layerRightPaddingM $layerBottomPaddingS
+      $layerLeftPaddingM;
+  }
+
+  @include susy-breakpoint($breakpoint-large...) {
+    margin: 20px $layerInnerPaddingLXL $layerInnerPaddingLXL
+      $layerInnerPaddingLXL;
+  }
+}
+
+// When there is a headline create the becessary space to the top
+.p_layer__headline + .p_layer__body {
+  margin-top: 0;
+}
+
+.p_layer__content {
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+.p_layer__menu {
+  display: inline-block;
+  padding: $layerTopPaddingS $layerRightPaddingS 0 $layerLeftPaddingS;
+  width: 100%;
+  vertical-align: top;
+
+  // Starting from L the menu moves down in the layer
+  @include susy-breakpoint($breakpoint-large...) {
+    bottom: 0;
+    padding: 0 $layerInnerPaddingLXL $layerInnerPaddingLXL;
+    position: absolute;
+    top: auto;
+    z-index: 1;
+  }
+}
+
+.p_layer__menu + .p_layer__content {
+  // Starting from L the menu moves down in the layer
+  @include susy-breakpoint($breakpoint-large...) {
+    padding-bottom: 80px;
+  }
+}
+
+.p_layer__button {
+  float: left;
+  margin-left: 2px;
+  width: 139px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.p_layer__body {
+  .p_formGroup__row .p_form__input[type="radio"],
+  .p_formGroup__row .p_form__input[type="checkbox"] {
+    position: absolute;
+  }
+}

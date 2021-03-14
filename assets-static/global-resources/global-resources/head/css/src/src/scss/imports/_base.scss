@@ -1,0 +1,183 @@
+@import "global-frontend-settings/scss/grid";
+@import "global-frontend-settings/scss/variables";
+@import "global-frontend-settings/scss/mixins";
+/*@import "compass/css3";*/
+
+html {
+  height: 100%;
+  overflow-y: scroll; // permanenter scrollbar to the right
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: $white;
+  color: $black100;
+  height: 100%;
+  margin: 0;
+  -webkit-text-size-adjust: 100%; //for text size adjusting on iphone
+  word-spacing: 1px;
+
+  @include susy-breakpoint($breakpoint-min-show-info-container...) {
+    background: $grey100;
+
+    .app & {
+      background: $white;
+    }
+  }
+
+  &.popupPage {
+    background: $white;
+    height: auto;
+  }
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: $sansFontFamily;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-family: "OttoSansThin", "OTTOSans", Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 30px;
+}
+
+h2 {
+  font-family: "OttoSans", Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 26px;
+}
+
+h3 {
+  font-family: "OttoSans", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 24px;
+}
+
+h4 {
+  font-family: "OttoSans", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 22px;
+}
+
+h5 {
+  font-family: "OttoSans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+}
+
+h6 {
+  font-family: "OttoSans", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 17px;
+}
+
+input[type="password"] {
+  font-family: $fallbackFontFamily;
+}
+
+// Removing unwanted button padding in Firefox
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+a {
+  *color: $black100;
+  color: inherit;
+}
+
+// link masking
+.ub64e {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+strong,
+.bold {
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+.iconfont {
+  font-family: "OttoIconFonts", Arial, Helvetica, sans-serif;
+}
+
+.line {
+  border-bottom: 1px solid #d6d6d6;
+  clear: both;
+  display: block;
+  height: 1px;
+  margin: 0;
+  width: 100%;
+}
+
+.logo {
+  background: url("../img/otto_logo.png") no-repeat;
+  cursor: pointer;
+  display: block;
+  height: 55px;
+  margin: 27px 0 18px;
+  text-decoration: none; // used by shopoffice for header_small
+}
+
+footer .ofig {
+  text-align: center;
+}
+
+.footerSmall .push {
+  height: 0;
+}
+
+// hide nav when printing, just because no one is interested in a navigation when printing out the ADS
+@media print {
+  body {
+    background-color: $white;
+    color: $black;
+  }
+
+  body,
+  button,
+  input,
+  select,
+  textarea {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .product-system .header-info,
+  .product-system .omega,
+  .product-system nav,
+  .product-system footer .bigLinkTable tr th,
+  .product-system footer .bigLinkTable tr td,
+  .product-system footer .iconRow,
+  .user_feedback_splice_bar_live {
+    display: none;
+  }
+
+  .product-system footer .bigLinkTable tr th.width3,
+  .product-system footer .bigLinkTable tr td.width3 {
+    display: table-cell;
+    *display: inline;
+  }
+}

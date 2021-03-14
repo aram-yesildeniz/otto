@@ -1,0 +1,200 @@
+.promo_shoppromo-small {
+
+  &--container {
+    visibility: visible !important;
+    padding: 16px 0;
+    @media (min-width: $large-width) {
+      padding: 16px 0 32px 0;
+    }
+  }
+
+  &--pretext {
+    @include font-size($font100);
+    @media (min-width: $large-width) {
+      @include font-size($font125);
+    }
+    padding: 0 8px;
+  }
+
+  &--headline {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    @include font-size($font150);
+    font-weight: bold;
+    padding: 0 8px 4px 8px;
+    @media (min-width: $large-width) {
+      @include font-size($font225);
+    }
+  }
+
+  &--cinema-container {
+    position: relative;
+    padding: 0 8px;
+
+    .touchable & {
+      padding: 0;
+    }
+  }
+
+  &--tile-container {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .touchable & {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  .touchable &--tile:first-child {
+     padding-left: 8px;
+  }
+
+  .touchable &--tile:last-child {
+     padding-right: 8px;
+  }
+
+  &--tile {
+    display: inline-block;
+    width: 152px;
+    overflow: hidden;
+    padding: 0 0 0 0;
+    vertical-align: top;
+    @media (min-width: $large-width) {
+      width: 256px;
+    }
+  }
+
+  &--target-name {
+    display: inline-block;
+    padding: 4px 0 8px 0;
+    max-width: 90%;
+    vertical-align: top;
+    white-space: initial;
+
+    @include font-size($font100);
+    @media (min-width: $large-width) {
+      @include font-size($font125);
+    }
+  }
+
+  &--textbox {
+    text-align: center;
+    width: 100%;
+  }
+
+  &--link {
+    text-decoration: none;
+  }
+
+  &--image-container {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    background-color: $grey100;
+    @media (min-width: $large-width) {
+      height: 192px;
+    }
+  }
+
+  &--image-background {
+    max-height: 102%;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    filter: blur(2px);
+  }
+
+  &--image-background img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--image-background-representative {
+    position: absolute;
+    height: 136px;
+    width: 136px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @media (min-width: $large-width) {
+      width: 160px;
+      height: 160px;
+    }
+  }
+
+  &--image-representative {
+    position: absolute;
+    width:70%;
+    height:70%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &--center-circle {
+    position: absolute;
+    height: 136px;
+    width: 136px;
+    left: 50%;
+    top: 50%;
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    @media (min-width: $large-width) {
+      width: 160px;
+      height: 160px;
+    }
+  }
+
+  &--cinema-button {
+    position: absolute;
+    transform: translate(0%, -50%);
+    top: 100px;
+    margin: auto;
+    height: 192px;
+    cursor: pointer;
+    z-index: 10;
+    @media (min-width: $large-width) {
+      top: 96px;
+    }
+
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 150ms linear;
+
+    .touchable & {
+      visibility: hidden;
+    }
+
+    &-left {
+      left: 5px;
+    }
+
+    &-right {
+      right: 5px;
+    }
+
+    &-hide {
+      visibility: hidden !important;
+      transition: visibility 0s 1500ms, opacity 150ms linear;
+      opacity: 0;
+    }
+
+    &-icon {
+      margin-top: 76px;
+    }
+
+  }
+}

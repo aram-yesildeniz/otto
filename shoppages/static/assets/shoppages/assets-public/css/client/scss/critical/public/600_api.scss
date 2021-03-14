@@ -1,0 +1,17 @@
+/* these classes are used in user generated content in textblock and colapsables - only change with care */
+@import "susy/sass/susy";
+@import "global-frontend-settings/scss/grid";
+
+.sp_hideWhenNotLarge {
+    display: none;
+    @include susy-breakpoint($breakpoint-large...) {
+        display: inline-block;
+    }
+}
+
+.sp_hideWhenLarge {
+    display: inline-block;
+    @include susy-breakpoint($breakpoint-large...) {
+        display: none;
+    }
+}

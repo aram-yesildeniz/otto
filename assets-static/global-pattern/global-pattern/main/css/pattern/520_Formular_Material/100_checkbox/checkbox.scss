@@ -1,0 +1,71 @@
+.p_checkbox {
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+
+  &__element {
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    display: inline-block;
+    height: 20px;
+    margin: 10px 8px 0 0;
+    padding: 0;
+    vertical-align: top;
+    width: 20px;
+
+    &:after {
+      display: block;
+      border: 1px solid $grey200;
+      height: 20px;
+      left: 0;
+      line-height: 20px;
+      position: relative;
+      text-align: center;
+      top: 0;
+      width: 20px;
+      content: "";
+
+      .p_checkbox--invalid & {
+        border-color: $red100;
+      }
+    }
+
+    &:checked {
+      &:after {
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M8.852 18.807a1 1 0 01-.706-.292l-5.35-5.336a1 1 0 011.414-1.416l4.642 4.63L19.797 5.476a1 1 0 011.413 1.416L9.559 18.515a.998.998 0 01-.707.292z' fill='%23222'/%3E%3C/g%3E%3C/svg%3E");
+        display: block;
+        background-size: 12px 12px;
+        height: 20px;
+        border-color: $grey200 !important;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    max-width: calc(100% - 25px);
+    padding: 10px 0;
+    @include font-size($font125, true);
+  }
+
+  &__note {
+    display: block;
+    @include font-size($font75, false);
+  }
+
+  &--hint {
+    .p_checkbox__note {
+      color: $hint-inverted-color;
+    }
+  }
+  &--invalid {
+    .p_checkbox__note {
+      color: $red100;
+    }
+  }
+}

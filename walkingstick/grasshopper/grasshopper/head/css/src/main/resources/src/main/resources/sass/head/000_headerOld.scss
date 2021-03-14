@@ -1,0 +1,514 @@
+@import "../sanBase";
+@import "../config";
+
+$headerBorder: 1px solid $grey200;
+
+.reducedOuterPadding {
+    #sanHeadWrp, #navigationWrp {
+        margin: 0 $outer-grid-padding;
+    }
+}
+
+.san_suggestLayer {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 2000;
+    left: 8px;
+    top: 44px;
+    @include font-size($font100);
+    border-radius: 3px;
+    @include susy-breakpoint($breakpoint-large...) {
+        left: 0;
+    }
+
+    &__list {
+        margin: 0 21px 0 5px;
+        border: 1px solid $grey300;
+        background: $white;
+
+        @include susy-breakpoint($breakpoint-large...) {
+            margin: 0 5px;
+        }
+    }
+
+    &__value {
+        position: relative;
+        line-height: 40px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        height: 40px;
+        cursor: pointer;
+
+        .match {
+            font-weight: bold;
+        }
+    }
+
+    &__value {
+        padding: 0 40px 0 0;
+
+        &:first-child {
+            .san_suggestLayer__text,
+            .san_suggestLayer__arrow {
+                border-top: none;
+            }
+        }
+
+        &.san_suggestLayer__entry--selected {
+            background-color: $grey50;
+        }
+
+        .count {
+            color: $grey200;
+        }
+    }
+
+    &__text {
+        border-top: 1px solid $grey50;
+        overflow: hidden;
+        padding-left: 8px;
+        text-overflow: ellipsis;
+
+        &:hover {
+            background-color: $grey50;
+        }
+    }
+
+    &__contentText {
+        @extend .san_suggestLayer__text;
+        border-top-color: $white;
+    }
+
+    &__arrow {
+        border-left: 1px solid $grey50;
+        border-top: 1px solid $grey50;
+        background-color: $white;
+        color: $grey200;
+        cursor: pointer;
+        font-size: 22px;
+        font-family: $iconFontFamily;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        width: 40px;
+
+        &:hover {
+            background-color: $grey50;
+        }
+    }
+}
+
+.san-system {
+    .searchForm {
+        position: relative;
+        margin: 10px;
+        input {
+            outline: 0;
+            box-sizing: content-box;
+
+            &.hint {
+                color: $grey300;
+            }
+        }
+    }
+}
+
+/*******************
+**** RWD HEADER ****
+********************/
+header {
+    @include container(100%);
+    // Wenn alle Vertikalen reducedOutzerpadding umgesetzt hat, kann das entfertn werden
+    .reducedOuterPadding & {
+        position: relative;
+    }
+    // Workaround END
+
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.san-oc-header-menu {
+    display: block;
+    @include container();
+    @include span(2 of 12);
+    margin-top: 24px;
+
+    @include susy-breakpoint($breakpoint-large...) {
+        display: none;
+    }
+}
+
+.san_hideOnDesktop {
+    @include susy-breakpoint($breakpoint-large...) {
+        display: none;
+    }
+}
+
+
+// Only used by displayed search field on S breakpoint
+#sanHeadWrp {
+    &.searchVisible {
+        @media(max-width: $large-width-pmax) {
+            // Workaround for max-width
+            padding-bottom: 56px;
+
+            .san_searchField__Wrapper {
+                display: block;
+                position: absolute;
+                padding: 0 $outer-grid-padding;
+                top: 50px;
+                left: 0;
+                width: 100%;
+
+                form {
+                    margin: 0;
+                    padding: 5px;
+                    background-color: $grey100;
+                    border-top: 1px solid $grey200;
+                }
+
+                .sanSearchButton {
+                    right: 5px;
+                    top: 5px;
+                }
+
+                .sanSearchDelBtn {
+                    right: 55px;
+                    top: 5px;
+                }
+            }
+
+            #searchGlassWrp {
+                margin-top: -1px;
+                padding-bottom: 6px;
+                border: 1px solid $grey200;
+                border-bottom: 1px solid $grey100;
+                border-radius: 3px 3px 0 0;
+                color: $red100;
+                background-color: $grey100;
+            }
+        }
+    }
+}
+
+#sanHeadWrp {
+    min-height: 51px;
+    border-bottom: $headerBorder;
+    @include susy-breakpoint($breakpoint-large...) {
+        border-bottom: none;
+    }
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+
+    #mobilMenuWrp {
+        @include span(1);
+
+        @include susy-breakpoint($breakpoint-large...) {
+            display: none;
+        }
+    }
+}
+
+#burgerMenu {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 5px 0 0 0;
+    text-align: center;
+    cursor: pointer;
+
+    p {
+        font-size: 9px;
+        line-height: 12px;
+        margin: 0;
+
+        &.p_icons {
+            font-size: 1.875rem;
+            line-height: 20px;
+            padding-top: 4px;
+        }
+    }
+}
+
+#logoWrp {
+    @include span(2);
+
+    @include susy-breakpoint($breakpoint-medium...) {
+        @include span(1);
+    }
+
+    @include susy-breakpoint($breakpoint-extra-large...) {
+        @include span(2);
+    }
+}
+
+.san_logo {
+    display: inline-block;
+    border: none;
+
+    img, .san-svg {
+        margin-top: 10px;
+        width: 75px;
+        height: 28px;
+
+        @include susy-breakpoint($breakpoint-large...) {
+            margin-top: 30px;
+            width: 120px;
+            height: 44px;
+        }
+
+        @include susy-breakpoint($breakpoint-extra-large...) {
+            margin-top: 25px;
+            width: 140px;
+            height: 52px;
+        }
+
+        path {
+            fill: $red100;
+        }
+    }
+}
+
+#searchAndIconWrp {
+    @include span(3);
+
+    @include susy-breakpoint($breakpoint-medium...) {
+        @include span(4);
+    }
+
+    @include susy-breakpoint($breakpoint-large...) {
+        position: relative;
+        @include span(10);
+        padding-left: 25px;
+    }
+
+    @include susy-breakpoint($breakpoint-extra-large...) {
+        @include span(10);
+        padding-left: 0;
+    }
+}
+
+#searchAndIconBg {
+    @include container(100%);
+
+    @include susy-breakpoint($breakpoint-large...) {
+        position: relative;
+        background-color: $grey100;
+    }
+
+    .sanSearchDelBtn:hover {
+        background: transparent;
+    }
+}
+
+#sanIconWrp {
+    position: relative;
+    float: right;
+    min-width: 175px;
+    margin: 5px 0 0 0;
+
+    // hide erroneous es-includes in non-live environment
+    & .error {
+        max-height: 40px;
+        overflow: hidden;
+    }
+
+    @include susy-breakpoint($breakpoint-extra-large...) {
+        right: 10px;
+    }
+
+    & > li {
+        float: left;
+        width: 40px;
+        margin: 0 5px 0 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        @include susy-breakpoint($breakpoint-medium...) {
+            margin-right: 20px;
+
+            &:last-child {
+                margin-right: 20px;
+            }
+        }
+
+        @include susy-breakpoint($breakpoint-large...) {
+            margin: 0 0 0 10px;
+            width: 65px;
+
+            &:last-child {
+                margin-right: 5px;
+            }
+        }
+
+        @include susy-breakpoint($breakpoint-extra-large...) {
+            margin: 0 0 0 15px;
+        }
+    }
+}
+
+.san_searchField__Wrapper {
+    display: none;
+    position: relative;
+
+    @include susy-breakpoint($breakpoint-large...) {
+        display: block;
+        @include span(6 of 12);
+        width: 47%;
+    }
+
+    form {
+        position: relative;
+        margin: 5px;
+    }
+
+    .sanSearchDelBtn {
+        display: none;
+        position: absolute;
+        right: 50px;
+        top: 0;
+        color: $grey200;
+        @include font-size($font100);
+        line-height: 40px;
+    }
+
+    .sanSearchInput {
+        @include font-size($font100);
+        padding: 9px;
+
+        &::-ms-clear {
+            display: none;
+        }
+
+        &.hint {
+            color: $grey300;
+        }
+
+        &.sanDelShow {
+            padding-right: 90px;
+
+            & ~ .sanSearchDelBtn {
+                display: block;
+            }
+        }
+    }
+
+    .sanSearchButton {
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 0 3px 3px 0;
+        color: $white;
+        font-family: $iconFontFamily;
+        @include font-size($font225);
+        background-color: #C0241B;
+        background-image: -webkit-linear-gradient(top, #D5281E, #C0241B);
+        background-image: -moz-linear-gradient(top, #D5281E, #C0241B);
+        background-image: linear-gradient(to bottom, #D5281E, #C0241B);
+        background-clip: padding-box;
+        border: medium none;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        outline: 0 none;
+        text-align: center;
+        white-space: nowrap;
+        overflow: visible;
+    }
+}
+
+#loginWrp {
+    min-height: 1px; // Keine Verschiebung der Container
+}
+
+#serviceLink {
+    display: block;
+    text-decoration: none;
+    @include font-size($font75);
+
+    span {
+        display: block;
+        @include font-size($font175);
+    }
+    span.p_icons {
+        line-height: 1.16667em;
+        font-size: 1.5rem;
+    }
+    span#serviceSpan {
+        font-size:  .75rem;
+        line-height: 1.16667em;
+    }
+}
+
+#searchGlassWrp {
+    display: block;
+    text-align: center;
+    margin-left: 0;
+
+    @include susy-breakpoint($breakpoint-large...) {
+        display: none;
+    }
+}
+
+#searchGlass {
+    @include font-size($font200);
+    line-height: 1.8em;
+    cursor: pointer;
+}
+#searchGlass.p_icons {
+    font-size: 1.875rem;
+    line-height: 1.333333em;
+    cursor: pointer;
+}
+
+#shoppingLink {
+    display: none;
+    color: $grey400;
+    @include font-size($font75);
+    text-decoration: none;
+    margin: 10px 0 0 0;
+
+    @include susy-breakpoint($breakpoint-large...) {
+        display: inline-block;
+    }
+}
+
+#serviceLinkWrp {
+    display: none;
+    margin: 0;
+    text-align: center;
+
+    @include susy-breakpoint($breakpoint-large...) {
+        display: block;
+    }
+}
+
+#navigationWrp {
+    display: none;
+    border-bottom: $headerBorder;
+
+    .storefront & {
+        border-bottom: none;
+    }
+
+    @include susy-breakpoint($breakpoint-large...) {
+        display: block;
+    }
+}

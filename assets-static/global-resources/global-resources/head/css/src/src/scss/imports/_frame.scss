@@ -1,0 +1,150 @@
+@import "global-frontend-settings/scss/grid";
+@import "global-frontend-settings/scss/variables";
+/*@import "compass/css3";*/
+
+/// @name info-container-width
+$info-container-width: 160px;
+
+/// @name info-container-margin-right
+$info-container-margin-right: 6px;
+
+/// @name info-container-margin-left
+$info-container-margin-left: 24px;
+
+/// @name info-container-total-width
+$info-container-total-width: $info-container-width +
+  $info-container-margin-right + $info-container-margin-left;
+
+// START: Non responsive containers
+.wrapper {
+  background: $white;
+  height: auto !important;
+  margin: 0 auto -193px;
+  min-height: 100%;
+  padding: 0 45px;
+  position: relative;
+  zoom: 1;
+  text-align: left;
+}
+
+.content_and_av .wrapper {
+  float: left;
+}
+
+.content {
+  display: block;
+  margin-bottom: 10px;
+  min-height: 400px;
+  z-index: 1;
+}
+
+.content::after {
+  clear: both;
+  content: ".";
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.content_and_av {
+  height: 100%;
+  margin: 0 auto;
+  width: 1263px;
+}
+
+@media screen and (max-width: 1259px) {
+  .content_and_av {
+    height: 100%;
+    width: auto;
+  }
+}
+
+@media print {
+  .wrapper {
+    box-shadow: none;
+  }
+
+  .content_and_av {
+    width: auto;
+  }
+}
+
+// START: Responsive containers
+.gridContainer {
+  max-width: container();
+  min-width: 320px;
+  padding: 0 8px;
+
+  &:after {
+    clear: both;
+    content: " ";
+    display: block;
+  }
+
+  &.reducedOuterPadding {
+    padding: 0;
+  }
+
+  @include susy-breakpoint($breakpoint-large...) {
+    padding: 0 16px;
+
+    &.reducedOuterPadding {
+      padding: 0 $outer-grid-padding;
+    }
+  }
+
+  @include susy-breakpoint($breakpoint-min-show-info-container...) {
+    padding: 0 32px;
+
+    &.reducedOuterPadding {
+      padding: 0 32px;
+    }
+  }
+}
+
+.gridAndInfoContainer {
+  height: 100%;
+
+  @include susy-breakpoint($breakpoint-max-show-info-container...) {
+    margin-left: auto;
+    margin-right: auto;
+    width: susy-get(container) + $info-container-total-width;
+  }
+
+  .gridContainer {
+    @include susy-breakpoint($breakpoint-min-show-info-container...) {
+      $unitless-info-container-total-width: $info-container-total-width / 1px;
+      $unitless-min-show-info-container-width: $min-show-info-container-width /
+        1em * 16;
+      $content-share-of-total-width: 1 - $unitless-info-container-total-width /
+        $unitless-min-show-info-container-width;
+      float: left;
+      width: floor(percentage($content-share-of-total-width));
+      min-width: 1025px; // min. xl-gridContainer-innerWidth (961px) + left- and right-padding (2 x 32px)
+
+      .app & {
+        float: none;
+      }
+    }
+
+    @include susy-breakpoint($breakpoint-max-show-info-container...) {
+      float: left;
+      width: susy-get(container);
+    }
+  }
+
+  .infoContainer {
+    display: none;
+
+    @include susy-breakpoint($breakpoint-min-show-info-container...) {
+      display: inline-block;
+      margin: 214px $info-container-margin-right 0 $info-container-margin-left;
+      width: $info-container-width;
+
+      .app & {
+        display: none;
+      }
+    }
+  }
+}
