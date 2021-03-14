@@ -1,6 +1,0 @@
-.p_form__text {
-    box-sizing: border-box;
-    @include font-size($font100, true);
-    // Repeat font-size, since input/p is in danger of being redefined by globals
-    margin: 0;
-}
