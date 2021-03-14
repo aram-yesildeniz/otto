@@ -592,7 +592,7 @@ o_user.customerServiceWidget.presenterBuilder = function (document, view, persis
 
     function init() {
         if (!disableServiceWidgetOnSite() && !isPopup() && !isApp() && isModernDevice()) {
-            globalUtils.ajax.get("/user/customerServiceWidgetContainer", function (xhr) {
+            globalUtils.ajax.get("test/user/customerServiceWidgetContainer", function (xhr) {
                 document.body.insertAdjacentHTML("beforeend", xhr.responseText);
                 register();
                 showCustomerServiceWidgetAndNotificationIfNotHiddenByUser();

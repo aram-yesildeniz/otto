@@ -51,7 +51,7 @@ class WatoRequest {
             return Promise.reject("Could not identify the page type");
         }
         this.trackingApi.sendMergeRequest({'wato_AinfoRequest': 'true'});
-        const watoUrl = `/wato-onsite/a_info?identifier=${encodeURIComponent(aditionIdentifier.identifier)}&areatype=${encodeURIComponent(areaType)}${this._toRuleParameter(aditionIdentifier.rule)}`;
+        const watoUrl = `test/wato-onsite/a_info?identifier=${encodeURIComponent(aditionIdentifier.identifier)}&areatype=${encodeURIComponent(areaType)}${this._toRuleParameter(aditionIdentifier.rule)}`;
         return Promise.resolve(o_util.ajax
             .getJSON(watoUrl)
             .then(response => {

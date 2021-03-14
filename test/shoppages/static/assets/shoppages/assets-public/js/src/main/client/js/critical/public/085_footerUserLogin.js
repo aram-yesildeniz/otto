@@ -69,7 +69,7 @@ o_shoppages.footerUserLogin = (() => {
     function loadUserData () {
         const loginFooterArea = document.getElementsByClassName('sp_loginFooterArea')[0];
         if (typeof loginFooterArea !== 'undefined' && !loginFooterArea.getAttribute('data-initialized')) {
-            o_util.ajax.getJSON('/user/public/loginState/footer').then((xhr) => {
+            o_util.ajax.getJSON('test/user/public/loginState/footer').then((xhr) => {
                 if (xhr.status === 200) {
                     loginFooterArea.setAttribute('data-initialized', true);
                     displayUserInformation(xhr.responseJSON);
