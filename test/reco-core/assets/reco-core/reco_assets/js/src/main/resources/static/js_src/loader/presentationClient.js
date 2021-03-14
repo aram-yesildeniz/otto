@@ -35,12 +35,12 @@ module.exports = () => {
     };
 
     module.loadDetailViewCinemas = (variationId, ...cinemaIdentifiers) => {
-        const url = `/reco-core/cinemas/detailview/variations/${variationId}?${o_tracking.bct.getMergeParameters()}`;
+        const url = `test/reco-core/cinemas/detailview/variations/${variationId}?${o_tracking.bct.getMergeParameters()}`;
         return loadCinemasInternal(url, ...cinemaIdentifiers);
     };
 
     module.loadDetailViewAlternativeCinema = (variationId) => {
-        const url = `/reco-core/cinemas/detailview/alternative/variations/${variationId}?${o_tracking.bct.getMergeParameters()}`;
+        const url = `test/reco-core/cinemas/detailview/alternative/variations/${variationId}?${o_tracking.bct.getMergeParameters()}`;
         return loadCinemasInternal(url, ALTERNATIVE_IDENTIFIER)
             .then((cinemaMap) => {
                 if (!!cinemaMap && !!cinemaMap[ALTERNATIVE_IDENTIFIER]) {
@@ -54,7 +54,7 @@ module.exports = () => {
     };
 
     module.loadDetailViewComplementaryCinema = (variationId) => {
-        const url = `/reco-core/cinemas/detailview/complementary/variations/${variationId}?${o_tracking.bct.getMergeParameters()}`;
+        const url = `test/reco-core/cinemas/detailview/complementary/variations/${variationId}?${o_tracking.bct.getMergeParameters()}`;
         return loadCinemasInternal(url, COMPLEMENTARY_IDENTIFIER)
             .then((cinemaMap) => {
                 if (!!cinemaMap && !!cinemaMap[COMPLEMENTARY_IDENTIFIER]) {
@@ -68,7 +68,7 @@ module.exports = () => {
     };
 
     module.loadDetailViewProductLineCinema = (variationId) => {
-        const url = `/reco-core/cinemas/detailview/productline/variations/${variationId}?${o_tracking.bct.getMergeParameters()}`;
+        const url = `test/reco-core/cinemas/detailview/productline/variations/${variationId}?${o_tracking.bct.getMergeParameters()}`;
         return loadCinemasInternal(url, PRODUCTLINE_IDENTIFIER)
             .then((cinemaMap) => {
                 if (!!cinemaMap && !!cinemaMap[PRODUCTLINE_IDENTIFIER]) {
@@ -82,7 +82,7 @@ module.exports = () => {
     };
 
     module.loadProductlineCinema = (variationId) => {
-        return loadCinemasInternal(`/reco-core/cinemas/productline/variations/${variationId}`, PRODUCTLINE_IDENTIFIER)
+        return loadCinemasInternal(`test/reco-core/cinemas/productline/variations/${variationId}`, PRODUCTLINE_IDENTIFIER)
             .then((cinemaMap) => {
                 if (!!cinemaMap && !!cinemaMap[PRODUCTLINE_IDENTIFIER]) {
                     return cinemaMap[PRODUCTLINE_IDENTIFIER];
@@ -93,7 +93,7 @@ module.exports = () => {
     };
 
     module.loadEntryPageCinema = (menuItemPath, dresonRule, pageType, index, time) => {
-        let url = `/reco-core/cinemas/entrypage?menuItemPath=${menuItemPath}&${o_tracking.bct.getMergeParameters()}&encodedDresonRule=${dresonRule}`;
+        let url = `test/reco-core/cinemas/entrypage?menuItemPath=${menuItemPath}&${o_tracking.bct.getMergeParameters()}&encodedDresonRule=${dresonRule}`;
         if (pageType) {
             url += `&pageType=${pageType}`;
         }
@@ -115,7 +115,7 @@ module.exports = () => {
     };
 
     module.loadRefactorEntryPageCinema = (menuItemPath, dresonRule, pageType, index) => {
-        let url = `/reco-core/refactor/cinemas/entrypage?menuItemPath=${menuItemPath}&${o_tracking.bct.getMergeParameters()}&encodedDresonRule=${dresonRule}`;
+        let url = `test/reco-core/refactor/cinemas/entrypage?menuItemPath=${menuItemPath}&${o_tracking.bct.getMergeParameters()}&encodedDresonRule=${dresonRule}`;
         if (pageType) {
             url += `&pageType=${pageType}`;
         }
@@ -133,7 +133,7 @@ module.exports = () => {
     };
 
     module.loadOrderOverviewCinema = (variationId, cinemaId) => {
-        const url = `/reco-core/cinemas/orderOverview/variations/${variationId}?cinemaId=${cinemaId.toUpperCase()}`;
+        const url = `test/reco-core/cinemas/orderOverview/variations/${variationId}?cinemaId=${cinemaId.toUpperCase()}`;
         return loadCinemasInternal(url, ORDER_OVERVIEW_IDENTIFIER)
             .then((cinemaMap) => {
                 if (!!cinemaMap && !!cinemaMap[ORDER_OVERVIEW_IDENTIFIER]) {
@@ -145,7 +145,7 @@ module.exports = () => {
     };
 
     module.loadWishlistCinema = (variationId) => {
-        return loadCinemasInternal(`/reco-core/cinemas/wishlist/variations/${variationId}`, EXPANDABLE_CINEMA_IDENTIFIER)
+        return loadCinemasInternal(`test/reco-core/cinemas/wishlist/variations/${variationId}`, EXPANDABLE_CINEMA_IDENTIFIER)
             .then((cinemaMap) => {
                 if (!!cinemaMap && !!cinemaMap[EXPANDABLE_CINEMA_IDENTIFIER]) {
                     return cinemaMap[EXPANDABLE_CINEMA_IDENTIFIER];

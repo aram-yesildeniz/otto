@@ -16,7 +16,7 @@ module.exports = (globalWindow, trackingApi) => {
     });
 
     o_util.event.delegate(document, 'click', '.reco_privacy__opt_out', () => {
-        o_util.ajax.get("/reco-core/set-anonymous-cookie")
+        o_util.ajax.get("test/reco-core/set-anonymous-cookie")
             .then(() => {
                 trackingApi.sendEventRequest({promo_Privacy: 'optOut'});
                 globalWindow.location.reload(true);
