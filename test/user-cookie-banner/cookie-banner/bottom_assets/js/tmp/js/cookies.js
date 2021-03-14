@@ -5,7 +5,7 @@ class Cookies {
         this._acceptCbCookieEndpoint = "/setExplicitCookie";
         this._rejectCbCookieEndpoint = "/setRejectCookie";
         this._consentIdCookieName = "consentId";
-        this._consentIdContext = "/user-set-consent-id-cookie";
+        this._consentIdContext = "test/user-set-consent-id-cookie";
         this._iabConsentCookieName = "iabConsent";
         this._cookieUtil = cookieUtil;
         this._ajaxUtil = ajaxUtil;

@@ -1,7 +1,7 @@
 import * as util from "./beacon-util";
 import { capitalizeAndPrefixKeys } from "./beacon-util";
 import { trackingAddToPageImpression } from "./tracking";
-export const beaconServicePathRum = '/scale-beacon-service/rum';
+export const beaconServicePathRum = 'test/scale-beacon-service/rum';
 const toggleNameRum = 'SCALE_SendRumData';
 const allowedBrowsers = {
     CHROME: "Chrome",

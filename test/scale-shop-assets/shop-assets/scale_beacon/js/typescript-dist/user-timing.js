@@ -1,6 +1,6 @@
 import * as util from "./beacon-util";
 import { trackingAddToPageImpression } from "./tracking";
-const beaconServicePathUserTimings = '/scale-beacon-service/userTiming';
+const beaconServicePathUserTimings = 'test/scale-beacon-service/userTiming';
 const toggleNameUserTimings = 'SCALE_SendUserTimings';
 const defaultClientMetadata = {
     deviceBrowser: 'unknown',

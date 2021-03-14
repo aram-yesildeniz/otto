@@ -17,7 +17,7 @@ o_user.newsletter.snippet.serviceBuilder = function (ajaxUtil) {
     var servletContext = '/user';
 
     function loadNewsletterSnippetContent(successHandler, errorHandler) {
-        ajaxUtil.get(servletContext + '/subscribeToNewsletterSnippetContent')
+        ajaxUtil.get(servletContext + 'test/subscribeToNewsletterSnippetContent')
             .then(function (xhr) {
                 if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
                     successHandler(xhr);
