@@ -1,0 +1,19 @@
+////
+/// shared mixins
+/// @group mixins
+////
+
+///
+/// This mixin returns a font-size with rem-value and pixel-fallback.
+/// If line-height should be returned it returns an em-value regarding to the font-size.
+///
+/// @param {map} font Includes font-size and line-height in pixel.
+/// @param {boolean} line-height [true] Indicates if line-height should be omitted.
+///
+@mixin font-size($font, $line-height: true) {
+    font-size: (map-get($font, font-size));
+    font-size: (map-get($font, font-size) / 16px + rem);
+    @if $line-height == true and map-get($font, line-height) != "" {
+        line-height: map-get($font, line-height) / map-get($font, font-size) + em;
+    }
+}

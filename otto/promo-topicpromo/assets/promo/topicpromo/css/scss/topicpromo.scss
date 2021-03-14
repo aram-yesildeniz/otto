@@ -1,0 +1,67 @@
+.promo_topicpromo {
+
+  &--container {
+    visibility: visible !important;
+    position: relative;
+    touch-action: pan-y; //allow vertical scrolling,
+    padding: 16px 8px 24px;
+  }
+
+  &--pretext {
+    @include font-size($font100);
+    @media (min-width: $large-width) {
+      @include font-size($font125);
+    }
+  }
+
+  &--headline {
+    @include font-size($font150);
+    font-weight: bold;
+    padding-bottom: 4px;
+    @media (min-width: $large-width) {
+      @include font-size($font225);
+    }
+  }
+
+  &--image-container {
+    position: relative;
+  }
+
+  &--image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--picturecontainer {
+    background-color: white;
+  }
+
+  &--picture {
+    img {
+      display: block;
+    }
+  }
+
+  &--cta-container {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    @media (min-width: $large-width) {
+      visibility: visible;
+
+    }
+  }
+
+  &--cta {
+    text-align: center;
+    width: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #ffffff;
+    text-shadow: 0 1px 8px #222;
+    @include font-size($font125);
+  }
+
+}

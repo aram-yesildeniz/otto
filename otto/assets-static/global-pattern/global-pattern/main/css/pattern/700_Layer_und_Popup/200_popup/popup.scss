@@ -1,0 +1,39 @@
+// START: popup 100
+.p_popup {
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    background-color: $white;
+    max-width: 800px;
+    min-width: 320px;
+}
+
+.p_popupHeader {
+    padding: 20px 65px 20px 20px;
+    position: relative;
+
+    @include susy-breakpoint($breakpoint-large...) {
+        padding-left: 40px;
+        position: inherit;
+    }
+}
+
+.p_popupHeader__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    .app & {
+        display: none;
+    }
+}
+
+.p_popupContent {
+    padding: 0 20px 20px;
+}
+
+.p_popupContent {
+    @include susy-breakpoint($breakpoint-large...) {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}

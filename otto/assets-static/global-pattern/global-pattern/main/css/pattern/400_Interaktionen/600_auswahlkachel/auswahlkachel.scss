@@ -1,0 +1,367 @@
+.p_selTiles100,
+.p_selTiles50 {
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    margin: -5px;
+    overflow: hidden;
+}
+
+.p_selTiles100 li,
+.p_selTiles50 li {
+    background-color: $white;
+    border: 1px solid $grey200;
+    cursor: pointer;
+    float: left;
+    height: 40px;
+    line-height: 38px;
+    margin: 5px;
+    min-width: 40px;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.p_selTiles100 li {
+    height: 40px;
+    line-height: 38px;
+    min-width: 40px;
+    padding: 0 10px;
+}
+
+.p_selTiles50 li {
+    height: 30px;
+    line-height: 28px;
+    min-width: 30px;
+    padding: 0 5px;
+}
+
+.p_selTiles100 li:hover,
+.p_selTiles50 li:hover {
+    border-color: $black100;
+}
+
+.p_selTiles100 .p_selected,
+.p_selTiles50 .p_selected {
+    background-position: -2px -2px;
+    border: 3px solid $black100;
+    line-height: 34px;
+    padding: 0 8px;
+}
+
+.p_selTiles50 .p_selected {
+    line-height: 24px;
+    padding: 0 3px;
+}
+
+.p_selTiles100 .p_disabled,
+.p_selTiles50 .p_disabled {
+    background-color: $disabled-color;
+    border: medium none;
+    color: #EEEEEE;
+    cursor: default;
+    line-height: 40px;
+    padding: 0 11px;
+}
+
+.p_selTiles50 .p_disabled {
+    line-height: 30px;
+    padding: 0 6px;
+}
+
+.p_selTiles100 li:hover:after,
+.p_selTiles50 li:hover:after,
+.p_selTiles100 .p_selected:after,
+.p_selTiles50 .p_selected:after {
+    border: 1px solid $white;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.p_selTiles100 .p_disabled:hover:after,
+.p_selTiles50 .p_disabled:hover:after {
+    border: medium none;
+}
+
+// Wide Selecttiles
+.p_selTiles100--wide > li {
+    min-width: 60px;
+}
+
+// Selecttiles with Checkmark
+.p_selTiles100--checkmark > .p_selected:after,
+.p_selTiles100--checkmark > .p_selected:hover:after {
+    background-color: $black100;
+    border: none;
+    bottom: -3px;
+    color: $white;
+    content: "√";
+    font-family: $iconsFontFamily;
+    font-size: 9px;
+    left: auto;
+    line-height: 15px;
+    position: absolute;
+    right: -3px;
+    top: auto;
+    width: 15px;
+}
+
+/*    1. Color Thumbs    */
+.colorThumbs.hidden {
+    display: none;
+}
+
+.colorThumbs .border {
+    border: 1px solid #CEC4BB;
+    display: block;
+    float: left;
+    height: 17px;
+    width: 17px;
+}
+
+.colorThumbs .colorThumb {
+    display: block;
+    height: 17px;
+    width: 17px;
+}
+
+.colorThumbs.largeThumbs .colorThumb {
+    height: 23px;
+    width: 23px;
+}
+
+.cssgradients .san-system .colorThumbs .gradient {
+    display: block;
+    height: 17px;
+    width: 17px;
+    background: linear-gradient(left bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.colorThumbs .colorThumb.noColorDetail, .no-cssgradients .colorThumbs .colorThumb.noColorDetail {
+    background: url("./pattern/400_Interaktionen/600_auswahlkachel/img/platzhalter_colorthumb.gif") no-repeat;
+}
+
+.colorThumbs .colorThumb.notABaseColor {
+    background-position: -3px -3px;
+}
+
+.colorThumbs.largeThumbs .colorThumb.notABaseColor,
+.no-cssgradients .colorThumbs.largeThumbs .colorThumb.notABaseColor {
+    background-position: 1px 1px;
+}
+
+.colorThumbs.largeThumbs .colorThumb.notABaseColor:hover,
+.colorThumbs.largeThumbs .selected .colorThumb.notABaseColor {
+    background-position: 0 0;
+}
+
+.colorThumbs.largeThumbs .colorThumb:hover,
+.colorThumbs.largeThumbs .selected .colorThumb,
+.colorThumbs .border:hover .colorThumb,
+.colorThumbs .active .colorThumb,
+.colorThumbs .selected .colorThumb {
+    margin: 1px 0 0 1px;
+}
+
+.colorThumbs.largeThumbs .colorThumb:hover,
+.colorThumbs.largeThumbs .selected .colorThumb {
+    width: 21px;
+    height: 21px;
+}
+
+.colorThumbs .border:hover .colorThumb {
+    width: 15px;
+    height: 15px;
+}
+
+.colorThumbs .active.border:hover .colorThumb,
+.colorThumbs .active .colorThumb,
+.san-system .cssgradients .colorThumbs .active .gradient,
+.colorThumbs .selected .border:hover .colorThumb,
+.colorThumbs .selected .colorThumb {
+    width: 13px;
+    height: 13px;
+}
+
+.colorThumbs .active.border,
+.colorThumbs .selected .border {
+    border: 2px solid #222222;
+    width: 15px;
+    height: 15px;
+}
+
+.colorThumbs .border:hover {
+    border-color: #222222;
+    cursor: pointer;
+}
+
+/* OLD Colorthumb-Styles => #
+* TODO: Delete after old selTiles are not in use anymore
+*/
+
+/* old Browser support */
+.no-cssgradients .colorThumbs .colorThumb {
+    background: url("./pattern/400_Interaktionen/600_auswahlkachel/img/farbfilter_sprite.gif") no-repeat;
+}
+
+.no-cssgradients .colorThumbs.largeThumbs .colorThumb {
+    background: url("./pattern/400_Interaktionen/600_auswahlkachel/img/farbfilter_sprite_v2.gif") no-repeat;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.gelb {
+    background-position: -34px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.orange {
+    background-position: -67px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.rot {
+    background-position: -100px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.rosa {
+    background-position: -133px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.lila {
+    background-position: -166px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.blau {
+    background-position: -199px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.gruen {
+    background-position: -232px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.braun {
+    background-position: -265px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.natur {
+    background-position: -298px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.schwarz {
+    background-position: -331px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.grau {
+    background-position: -364px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.goldfarben {
+    background-position: -397px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.silberfarben, .no-cssgradients .colorThumb.silberfarben {
+    background-position: -430px 0;
+}
+
+.no-cssgradients .colorThumbs .colorThumb.bunt, .no-cssgradients .colorThumb.bunt {
+    background-position: -463px 0;
+}
+
+/* END Old Colorthumb-Styles*/
+
+/* old Browser support */
+
+.no-cssgradients .p_selTiles100 .colorThumb.silberfarben, .no-cssgradients .p_selTiles100 .colorThumb.goldfarben, .no-cssgradients .p_selTiles100 .colorThumb.bunt {
+    background: url("./pattern/400_Interaktionen/600_auswahlkachel/img/sprite_farbfilter_selTiles100.png") no-repeat;
+}
+
+.no-cssgradients .p_selTiles100 .colorThumb.silberfarben {
+    background-position: -42px -14px;
+}
+
+.no-cssgradients .p_selTiles100 .colorThumb.goldfarben {
+    background-position: -42px -64px;
+}
+
+.no-cssgradients .p_selTiles100 .colorThumb.bunt {
+    background-position: -42px -114px;
+}
+
+.no-cssgradients .p_selTiles50 .colorThumb.silberfarben, .no-cssgradients .p_selTiles50 .colorThumb.goldfarben, .no-cssgradients .p_selTiles50 .colorThumb.bunt {
+    background: url("./pattern/400_Interaktionen/600_auswahlkachel/img/sprite_farbfilter_selTiles50.png") no-repeat;
+}
+
+.no-cssgradients .p_selTiles50 .colorThumb.silberfarben {
+    background-position: -21px -16px;
+}
+
+.no-cssgradients .p_selTiles50 .colorThumb.goldfarben {
+    background-position: -21px -56px;
+}
+
+.no-cssgradients .p_selTiles50 .colorThumb.bunt {
+    background-position: -21px -96px;
+}
+
+.colorThumbs .colorThumb.weiss, .colorThumbs .weiss, .colorThumb.weiss {
+    background: #FFFFFF;
+}
+
+.colorThumbs .colorThumb.schwarz, .colorThumb.schwarz {
+    background: #222222;
+}
+
+.colorThumbs .colorThumb.braun, .colorThumb.braun {
+    background: #7E3906;
+}
+
+.colorThumbs .colorThumb.natur, .colorThumb.natur {
+    background: #F0EDE1;
+}
+
+.colorThumbs .colorThumb.gelb, .colorThumb.gelb {
+    background: #FFD229;
+}
+
+.colorThumbs .colorThumb.orange, .colorThumb.orange {
+    background: #EE9201;
+}
+
+.colorThumbs .colorThumb.rot, .colorThumb.rot {
+    background: #D52B1E;
+}
+
+.colorThumbs .colorThumb.rosa, .colorThumb.rosa {
+    background: #FF889E;
+}
+
+.colorThumbs .colorThumb.lila, .colorThumb.lila {
+    background: #8D0083;
+}
+
+.colorThumbs .colorThumb.blau, .colorThumb.blau {
+    background: #334982;
+}
+
+.colorThumbs .colorThumb.gruen, .colorThumb.gruen {
+    background: #198504;
+}
+
+.colorThumbs .colorThumb.grau, .colorThumb.grau {
+    background: #A6A9A7;
+}
+
+.colorThumbs .colorThumb.goldfarben, .colorThumb.goldfarben {
+    background: linear-gradient(to right top,#AA5B00 0,#994700 17%,#FFE284 54%,#FFE284 70%,#994700 95%)
+}
+
+.colorThumbs .colorThumb.silberfarben, .colorThumb.silberfarben {
+    background: linear-gradient(to right top,#888A87 17%,#E9EBE7 54%,#E9EBE7 70%,#888A87 95%);
+}
+
+.colorThumbs .colorThumb.bunt, .colorThumb.bunt {
+    background: linear-gradient(to right top,#7E3906 0,#7E3906 10%,#FF889E 10%,#FF889E 23%,#8D0083 23%,#8D0083 37%,#198504 37%,#198504 48.5%,#334982 48.5%,#334982 63%,#FFD229 63%,#FFD229 76%,#EE9201 76%,#EE9201 90%,#D52B1E 90%,#D52B1E 100%);
+}

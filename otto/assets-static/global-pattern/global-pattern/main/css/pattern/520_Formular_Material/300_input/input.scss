@@ -1,0 +1,98 @@
+/* appplied for the placeholder inside the input and the input itself */
+%p_input {
+  padding: 10px;
+  color: $black50;
+  display: block;
+  @include font-size($font125, true);
+}
+
+.p_input_wrapper,
+.p_input {
+  margin-top: 6px; // weissraum für das floating label
+  margin-bottom: 24px;
+  position: relative;
+
+  .p_input_wrapper & {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__field {
+    @extend %p_input;
+    background-color: transparent;
+    border: 1px solid $grey200;
+    border-radius: 2px;
+    color: $black50;
+    position: relative;
+    height: 40px;
+    padding: 0 16px;
+    width: 100%;
+
+    &:focus {
+      /* add important, when you want a black border on all focused inputs*/
+      border-color: $black /* !important */;
+      outline: 0;
+      box-shadow: none;
+    }
+    /* hide placehholder */
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  &--warning {
+    .p_input__field {
+      border-color: $warning-inverted-icon-color;
+    }
+  }
+  &--invalid {
+    @at-root .p_input--invalid {
+      .p_input__field {
+        border-color: $red100;
+      }
+    }
+    .p_input__note {
+      color: $red100;
+    }
+  }
+
+  &--valid {
+    @at-root .p_input--valid {
+      .p_input__field {
+        border-color: $success-inverted-color;
+      }
+    }
+    .p_input__note {
+      color: $success-inverted-color;
+    }
+  }
+
+  &--hint {
+    @at-root .p_input--hint {
+      .p_input__field {
+        border-color: $hint-inverted-color;
+      }
+    }
+    .p_input__note {
+      color: $hint-inverted-color;
+    }
+  }
+
+  &__note {
+    display: block;
+    margin: 10px 0 0 16px;
+    color: $grey400;
+    clear: both;
+    @include font-size($font75, false);
+
+    .p_input_wrapper & {
+      float: left;
+    }
+  }
+}
+
+.p_input_wrapper:after {
+  clear: both;
+  content: "";
+  display: table;
+}

@@ -1,0 +1,248 @@
+.combo-combo-list {
+  $moodImageSize_XL: 392px;
+  $moodImageSize_L: 266px;
+  $moodImageSize_M: 369px;
+  $moodImageSize_default: 321px;
+  &-invisible {
+    opacity: 0;
+    z-index: -42; //magic z index to check if css is onCssAndFirstImageLoaded in carousel.js
+  }
+
+  &-visible {
+    opacity: 1 !important;
+    transition: opacity 180ms linear;
+    z-index: auto;
+  }
+
+  &-container {
+    margin: 16px 0 32px 0;
+    padding: 0 8px;
+    position: relative;
+    touch-action: pan-y;
+    visibility: visible !important;
+
+    &.combo-combo-list-room {
+      .combo-combo-list-cinema-button {
+        bottom: 100px;
+      }
+
+      .combo-combo-list-cinema-button-left {
+        left: 10px;
+      }
+
+      .combo-combo-list-cinema-button-right {
+        right: 10px;
+      }
+
+      .combo-combo-list-item {
+        margin: 0;
+        padding-right: 8px;
+        @media (min-width: $large-width) {
+          padding-right: 16px;
+        }
+
+        &:not(:last-child) .combo-combo-list-articles-container {
+          margin: 0;
+        }
+
+      }
+
+      .combo-combo-list-item-content {
+        flex-direction: column;
+      }
+
+      .combo-combo-list-image {
+        width: $moodImageSize_default;
+
+        @media (min-width: $extra-large-width) {
+          width: $moodImageSize_XL;
+        }
+        @media (min-width: $large-width) and (max-width: $extra-large-width) {
+          width: $moodImageSize_L;
+        }
+        @media (min-width: $medium-width) and (max-width: $large-width) {
+          width: $moodImageSize_M;
+        }
+      }
+
+      .combo-combo-list-article-image {
+        // these article width values are always 1/4 of the moodImage width (see above)
+        // minus the article image padding (8+8px)
+        // as 4 is the maximum number of articles shown.
+        @function fromMoodImageSize($size) {
+          @return ($size / 4) - 16px;
+        }
+
+        width: fromMoodImageSize($moodImageSize_default);
+
+        @media (min-width: $extra-large-width) {
+          width: fromMoodImageSize($moodImageSize_XL);
+        }
+        @media (min-width: $large-width) and (max-width: $extra-large-width) {
+          width: fromMoodImageSize($moodImageSize_L);
+        }
+        @media (min-width: $medium-width) and (max-width: $large-width) {
+          width: fromMoodImageSize($moodImageSize_M);
+        }
+      }
+
+      .combo-combo-list-articles-container {
+        flex-direction: row;
+        width: 100%;
+        margin-right: 0;
+      }
+
+      .combo-combo-list-article {
+        padding: 8px;
+        margin: 0;
+      }
+
+
+
+    }
+  }
+
+  &-cinema-button-left {
+    left: 25px;
+  }
+
+  &-cinema-button-right {
+    right: 0;
+  }
+
+  &-cinema-button {
+    align-items: center;
+    bottom: 0;
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    position: absolute;
+    top: 34px;
+    visibility: visible;
+    z-index: 10;
+
+    &.disabled {
+      visibility: hidden !important;
+    }
+
+    .touchable & {
+      visibility: hidden;
+    }
+  }
+
+  &-headline {
+    @include font-size($font150);
+    font-weight: bold;
+    padding-bottom: 4px;
+    white-space: normal;
+    @media (min-width: $large-width) {
+      @include font-size($font225);
+    }
+  }
+
+  &-scroll-pane {
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+
+
+  &-item-container {
+    white-space: nowrap;
+    font-size: 0;
+    word-spacing: 0;
+    display: inline-block;
+
+    &#{&}--limited-height {
+
+      @function maxHeightForMoodImage($width) {
+        @return $width * 1.424;
+      }
+
+      max-height: maxHeightForMoodImage(250px);
+      @media (min-width: 381px) and (max-width: $medium-width) {
+        max-height: maxHeightForMoodImage(220px);
+      }
+      @media (max-width: 380px) {
+        max-height: maxHeightForMoodImage(175px);
+      }
+    }
+
+  }
+
+  &-item {
+    display: inline-block;
+    scroll-snap-align: start;
+    @media (min-width: 320px) and (max-width: $medium-width) {
+      padding: 4px 0;
+    }
+    margin: 0 2px 0 2px;
+
+    &:not(:last-child) .combo-combo-list-articles-container {
+      margin-right: 15px;
+
+      @media (min-width: $medium-width) {
+        margin-right: 24px;
+      }
+    }
+  }
+
+  &-item-content {
+    display: flex;
+  }
+
+  &-image-container {
+    position: relative;
+  }
+
+  &-mood-image-container {
+    background-color: white;
+  }
+
+  &-image {
+    width: 250px;
+  }
+
+  &-articles-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &-article {
+    margin: 8px;
+  }
+
+  &-article-image {
+    width: 73px;
+  }
+
+  &-image-link,
+  &-image-link picture {
+    display: block
+  }
+
+  @media (max-width: 380px) {
+    &-image {
+      width: 175px;
+    }
+
+    &-article-image {
+      width: 47px;
+    }
+  }
+
+  @media (min-width: 381px) and (max-width: $medium-width) {
+    &-image {
+      width: 220px;
+    }
+
+    &-article-image {
+      width: 61px;
+    }
+  }
+}

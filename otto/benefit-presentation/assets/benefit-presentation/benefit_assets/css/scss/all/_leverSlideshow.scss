@@ -1,0 +1,46 @@
+@import 'config';
+@import 'global-frontend-settings/scss/variables';
+
+.benefit_lever {
+  .benefit_leverSlideshow {
+    background: $grey25;
+    padding: 8px;
+    text-align: center;
+    min-height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0.9;
+
+    @media #{$s-and-m-mq} {
+      opacity: 1;
+    }
+
+    .benefit_leverSlideshowValue {
+      @include font-size($font150);
+      max-width: 85px;
+      color: $red100;
+      display: inline;
+      margin-right: 6px;
+    }
+
+    .benefit_leverSlideshowTextShort {
+      @include font-size($font100);
+      display: none;
+
+      @media #{$s-and-m-mq} {
+        display: inline-block;
+        margin: 2px 0;
+      }
+    }
+
+    .benefit_leverSlideshowTextLong {
+      @include font-size($font100);
+      margin: 2px 0;
+      display: inline-block;
+
+      @media #{$s-and-m-mq} {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+@import "../sanBase";
+
+/* Breadcrumb */
+.subnavWrapper {
+    overflow: hidden;
+    width: 100%;
+    float: left;
+}
+
+table.subnav {
+    width: 100%;
+    float: left;
+    display: table;
+    background-color: white;
+
+    @include susy-breakpoint($breakpoint-large...) {
+        margin-bottom: 15px;
+    }
+}
+
+.breadcrumb {
+    @include font-size($font75, false);
+    line-height: 22px;
+    color: $grey400;
+    vertical-align: middle;
+    padding: 10px $inner-grid-padding;
+
+    @include susy-breakpoint($breakpoint-large...) {
+        line-height: 18px;
+        padding: 10px 0 10px $inner-grid-padding;
+    }
+
+    h1 {
+        font-size: inherit;
+        line-height: inherit;
+        display: inline;
+        font-family: inherit;
+        font-weight: bold;
+        white-space: normal;
+    }
+    a {
+        color: $grey400;
+        text-decoration: none;
+        white-space: nowrap;
+        &:hover {
+            color: $red100;
+            text-decoration: none;
+        }
+    }
+    button {
+        vertical-align: middle;
+        display: inline;
+    }
+    .divide {
+        margin: 0 3px;
+    }
+    .item {
+        white-space: nowrap;
+    }
+
+    #san_inna-debug {
+        background: $red100;
+        color: $white;
+        margin-left: 4px;
+        border-radius: 4px;
+        padding: 2px 8px;
+        cursor: pointer;
+    }
+}
+
+.san_inna-debug__content {
+    @include font-size($font75, false);
+
+    dt {
+        margin-top: 6px;
+        font-weight: bold;
+    }
+
+    dd {
+        //noinspection CssOverwrittenProperties
+        word-break: break-all;
+        //noinspection CssInvalidPropertyValue,CssOverwrittenProperties
+        word-break: break-word;
+    }
+}
+
+// Elemente auf PL und Suche ausblenden
+.breadcrumb {
+    .dynamicBreadcrumb {
+
+        &.hasReferrer {
+            .item {
+                &:first-child {
+                    display: inline-block;
+
+                    .divide {
+                        display: none;
+
+                        @include susy-breakpoint($breakpoint-large...) {
+                            display: inline-block;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    display: none;
+
+                    @include susy-breakpoint($breakpoint-large...) {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        .item {
+            display: none;
+
+            &:last-child {
+                display: inline-block;
+
+                .divide {
+                    display: none;
+                }
+            }
+
+            &:last-child .itemTitle:before,
+            .goBackLink:before {
+                content: "<";
+                font-family: $iconFontFamily;
+                line-height: 1em;
+                padding-right: 3px;
+                vertical-align: middle;
+            }
+
+            @include susy-breakpoint($breakpoint-large...) {
+                display: inline-block;
+
+                &:last-child {
+                    .divide {
+                        display: inline-block;
+                    }
+                    .itemTitle:before {
+                        content: none;
+                    }
+                }
+            }
+        }
+    }
+}

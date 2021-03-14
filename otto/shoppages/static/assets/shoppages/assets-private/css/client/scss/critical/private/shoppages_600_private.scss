@@ -1,0 +1,9 @@
+@import "susy/sass/susy";
+@import "global-frontend-settings/scss/grid";
+
+.contentWithSidebar .sp_contentHeadline h1 {
+    display: none;
+    @include susy-breakpoint($breakpoint-large...) {
+        display: block;
+    }
+}

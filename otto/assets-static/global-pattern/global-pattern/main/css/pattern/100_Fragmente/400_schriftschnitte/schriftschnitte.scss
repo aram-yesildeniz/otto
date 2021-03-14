@@ -1,0 +1,18 @@
+.p_copyNormal {
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    font-weight: normal;
+}
+
+.p_copyBold {
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    font-family: $sansFontFamily;
+    font-weight: bold;
+}
+
+.p_copyThin {
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    font-family: $sansThinFontFamily;
+}

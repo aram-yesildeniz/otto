@@ -1,0 +1,34 @@
+@import "susy/sass/susy";
+@import "global-frontend-settings/scss/grid";
+@import "../../imports/own_frontend_settings/grid";
+
+$imageHeightInCroppedLWithNavigation: 381px;
+$imageWidthInCroppedLWithNavigation: 704px;
+
+.sp_teaser.sp_aktionsTeaser {
+
+    .sp_teaserImage {
+        padding-top: $imageHeightInCroppedLWithNavigation / $imageWidthInCroppedLWithNavigation * 100%;
+    }
+
+    .sp_teaserContentWrapper .sp_teaserContent {
+        overflow: hidden;
+        @include susy-breakpoint($breakpoint-large...) {
+            margin-bottom: 3 * $grid-padding;
+        }
+
+        .sp_aktionsTeaserButton {
+            width: auto;
+            float: right;
+            @include susy-breakpoint($breakpoint-large...) {
+                float: left;
+            }
+        }
+    }
+}
+
+.contentWithSidebar .sp_teaser.sp_aktionsTeaser .sp_teaserImage {
+    @include susy-breakpoint($breakpoint-large...) {
+        height: $imageHeightInCroppedLWithNavigation;
+    }
+}

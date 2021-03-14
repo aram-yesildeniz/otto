@@ -1,0 +1,267 @@
+%sp_sprite_shared {
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.shoppages {
+    .sp_ehi {
+        @extend %sp_sprite_shared;
+        width: 60px;
+        height: 60px;
+        background-image: url(../../sprites/sprite.all.ehi.png);
+    }
+
+    .sp_footer_blogs_platzschaffen {
+        @extend %sp_sprite_shared;
+        width: 103px;
+        height: 39px;
+        background-image: url(../../sprites/sprite.all.footer_blogs_platzschaffen.png);
+    }
+
+    .sp_footer_blogs_reblog {
+        @extend %sp_sprite_shared;
+        width: 35px;
+        height: 39px;
+        background-image: url(../../sprites/sprite.all.footer_blogs_reblog.png);
+    }
+
+    .sp_footer_blogs_roombeez {
+        @extend %sp_sprite_shared;
+        width: 103px;
+        height: 39px;
+        background-image: url(../../sprites/sprite.all.footer_blogs_roombeez.png);
+    }
+
+    .sp_header_otto_ios_app {
+        @extend %sp_sprite_shared;
+        width: 60px;
+        height: 60px;
+        background-image: url(../../sprites/sprite.all.red_otto_app_icon_small.png);
+    }
+
+    .sp_footer_blogs_soulfully {
+        @extend %sp_sprite_shared;
+        width: 86px;
+        height: 39px;
+        background-image: url(../../sprites/sprite.all.footer_blogs_soulfully.png);
+    }
+
+    .sp_footer_blogs_twoforfashion {
+        @extend %sp_sprite_shared;
+        width: 59px;
+        height: 39px;
+        background-image: url(../../sprites/sprite.all.footer_blogs_twoforfashion.png);
+    }
+
+    .sp_footer_blogs_updated {
+        @extend %sp_sprite_shared;
+        width: 83px;
+        height: 39px;
+        background-image: url(../../sprites/sprite.all.footer_blogs_updated.png);
+    }
+
+    .sp_footer_social_facebook {
+        @extend %sp_sprite_shared;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../sprites/sprite.all.footer_social_facebook.png);
+    }
+
+    .sp_footer_social_googleplus {
+        @extend %sp_sprite_shared;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../sprites/sprite.all.footer_social_googleplus.png);
+    }
+
+    .sp_footer_social_instagram {
+        @extend %sp_sprite_shared;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../sprites/sprite.all.footer_social_instagram.png);
+    }
+
+    .sp_footer_social_pinterest {
+        @extend %sp_sprite_shared;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../sprites/sprite.all.footer_social_pinterest.png);
+    }
+
+    .sp_footer_social_twitter {
+        @extend %sp_sprite_shared;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../sprites/sprite.all.footer_social_twitter.png);
+    }
+
+    .sp_footer_social_youtube {
+        @extend %sp_sprite_shared;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../sprites/sprite.all.footer_social_youtube.png);
+    }
+
+    .sp_google-app-store-badge-de {
+        @extend %sp_sprite_shared;
+        width: 135px;
+        height: 40px;
+        background-image: url(../../sprites/sprite.all.google-app-store-badge-de.png);
+    }
+
+    .sp_google-play-badge {
+        @extend %sp_sprite_shared;
+        width: 135px;
+        height: 40px;
+        background-image: url(../../sprites/sprite.all.google-play-badge.png);
+    }
+
+    .sp_logo_ottomarket {
+        @extend %sp_sprite_shared;
+        width: 153px;
+        height: 16px;
+        background-image: url(../../sprites/sprite.all.logo_ottomarket.png);
+    }
+
+    .sp_logo_ottoready {
+        @extend %sp_sprite_shared;
+        width: 124px;
+        height: 16px;
+        background-image: url(../../sprites/sprite.all.logo_ottoready.png);
+    }
+
+    .sp_logo_ottoretailmedia {
+        @extend %sp_sprite_shared;
+        width: 155px;
+        height: 16px;
+        background-image: url(../../sprites/sprite.all.logo_ottoretailmedia.png);
+    }
+
+    .sp_logo_paydirekt {
+        @extend %sp_sprite_shared;
+        width: 58px;
+        height: 20px;
+        background-image: url(../../sprites/sprite.all.logo_paydirekt.png);
+    }
+
+    .sp_logo_payment_credit {
+        @extend %sp_sprite_shared;
+        width: 106px;
+        height: 24px;
+        background-image: url(../../sprites/sprite.all.logo_payment_credit.png);
+    }
+
+    .sp_logo_payment_sepa {
+        @extend %sp_sprite_shared;
+        width: 63px;
+        height: 24px;
+        background-image: url(../../sprites/sprite.all.logo_payment_sepa.png);
+    }
+
+    .sp_logo_paypal {
+        @extend %sp_sprite_shared;
+        width: 65px;
+        height: 16px;
+        background-image: url(../../sprites/sprite.all.logo_paypal.png);
+    }
+
+    .sp_ofig34x128 {
+        @extend %sp_sprite_shared;
+        width: 128px;
+        height: 34px;
+        background-image: url(../../sprites/sprite.all.ofig34x128.png);
+    }
+
+    .sp_apple-app-store-badge-de {
+        @extend %sp_sprite_shared;
+        width: 135px;
+        height: 40px;
+        background-image: url(../../sprites/sprite.all.apple-app-store-badge-de.png);
+    }
+
+    .sp_red_otto_app {
+        @extend %sp_sprite_shared;
+        width: 42px;
+        height: 42px;
+        background-image: url(../../sprites/sprite.all.red_otto_app.png);
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+        .sp_ehi {
+            background-image: url(../../sprites/sprite.all.ehi@2x.png);
+        }
+        .sp_footer_blogs_platzschaffen {
+            background-image: url(../../sprites/sprite.all.footer_blogs_platzschaffen@2x.png);
+        }
+        .sp_footer_blogs_reblog {
+            background-image: url(../../sprites/sprite.all.footer_blogs_reblog@2x.png);
+        }
+        .sp_footer_blogs_roombeez {
+            background-image: url(../../sprites/sprite.all.footer_blogs_roombeez@2x.png);
+        }
+        .sp_footer_blogs_soulfully {
+            background-image: url(../../sprites/sprite.all.footer_blogs_soulfully@2x.png);
+        }
+        .sp_footer_blogs_twoforfashion {
+            background-image: url(../../sprites/sprite.all.footer_blogs_twoforfashion@2x.png);
+        }
+        .sp_footer_blogs_updated {
+            background-image: url(../../sprites/sprite.all.footer_blogs_updated@2x.png);
+        }
+        .sp_footer_social_facebook {
+            background-image: url(../../sprites/sprite.all.footer_social_facebook@2x.png);
+        }
+        .sp_footer_social_googleplus {
+            background-image: url(../../sprites/sprite.all.footer_social_googleplus@2x.png);
+        }
+        .sp_footer_social_instagram {
+            background-image: url(../../sprites/sprite.all.footer_social_instagram@2x.png);
+        }
+        .sp_footer_social_pinterest {
+            background-image: url(../../sprites/sprite.all.footer_social_pinterest@2x.png);
+        }
+        .sp_footer_social_twitter {
+            background-image: url(../../sprites/sprite.all.footer_social_twitter@2x.png);
+        }
+        .sp_footer_social_youtube {
+            background-image: url(../../sprites/sprite.all.footer_social_youtube@2x.png);
+        }
+        .sp_google-app-store-badge-de {
+            background-image: url(../../sprites/sprite.all.google-app-store-badge-de@2x.png);
+        }
+        .sp_google-play-badge {
+            background-image: url(../../sprites/sprite.all.google-play-badge@2x.png);
+        }
+        .sp_logo_ottomarket {
+            background-image: url(../../sprites/sprite.all.logo_ottomarket@2x.png);
+        }
+        .sp_logo_ottoready {
+            background-image: url(../../sprites/sprite.all.logo_ottoready@2x.png);
+        }
+        .sp_logo_ottoretailmedia {
+            background-image: url(../../sprites/sprite.all.logo_ottoretailmedia@2x.png);
+        }
+        .sp_logo_paydirekt {
+            background-image: url(../../sprites/sprite.all.logo_paydirekt@2x.png);
+        }
+        .sp_logo_payment_credit {
+            background-image: url(../../sprites/sprite.all.logo_payment_credit@2x.png);
+        }
+        .sp_logo_payment_sepa {
+            background-image: url(../../sprites/sprite.all.logo_payment_sepa@2x.png);
+        }
+        .sp_logo_paypal {
+            background-image: url(../../sprites/sprite.all.logo_paypal@2x.png);
+        }
+        .sp_ofig34x128 {
+            background-image: url(../../sprites/sprite.all.ofig34x128@2x.png);
+        }
+        .sp_apple-app-store-badge-de {
+            background-image: url(../../sprites/sprite.all.apple-app-store-badge-de@2x.png);
+        }
+        .sp_red_otto_app {
+            background-image: url(../../sprites/sprite.all.red_otto_app@2x.png);
+        }
+    }
+}

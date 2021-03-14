@@ -1,0 +1,16 @@
+@import "susy/sass/susy";
+@import "global-frontend-settings/scss/variables";
+@import "../../imports/own_frontend_settings/grid";
+
+.sp_textExpander {
+    height: 190px;
+}
+
+.sp_textExpanderToggle {
+    padding-left: $grid-padding;
+    padding-right: $grid-padding;
+    // we need to remove the margin because the textblock has a margin bottom of 2 times $grid-padding
+    // and the last element of the textblock is a p which has 10px margin bottom by default
+    margin-top: -2 * $grid-padding - 10;
+    color: $grey400;
+}

@@ -1,0 +1,53 @@
+@import "susy/sass/susy";
+@import "global-frontend-settings/scss/grid";
+@import "global-frontend-settings/scss/variables";
+@import "../../imports/own_frontend_settings/grid";
+
+.sp_breadCrumbContainer {
+    @include span(susy-get(columns));
+    margin-top: $grid-padding;
+    padding-right: $grid-padding;
+    padding-left: $grid-padding;
+    visibility: visible !important;
+
+    .sp_breadCrumbArrow {
+        padding-right: $grid-padding;
+    }
+
+    .sp_breadCrumb {
+        color: $grey400;
+        @include span(susy-get(columns));
+        margin-bottom: 2 * $grid-padding;
+
+        a {
+            white-space: nowrap;
+        }
+
+        .sp_breadCrumbSeparator {
+            padding-left: $grid-padding;
+            padding-right: $grid-padding;
+        }
+
+        .sp_breadCrumbCurrentPage {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+    }
+
+    .sp_breadCrumbParentNavigation {
+        @include span(susy-get(columns));
+        margin-top: $grid-padding;
+        margin-bottom: $grid-padding;
+        @include susy-breakpoint($breakpoint-large...) {
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+
+            .sp_breadCrumbArrow {
+                padding-left: $grid-padding;
+            }
+        }
+    }
+}

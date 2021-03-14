@@ -1,0 +1,10 @@
+.lazySpinner {
+  background: url(../img/ajax-loader.gif) no-repeat 0 0;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+}
+
+.sel_addToBasketDialog .lazySpinner {
+  margin: 88px auto auto auto;
+}

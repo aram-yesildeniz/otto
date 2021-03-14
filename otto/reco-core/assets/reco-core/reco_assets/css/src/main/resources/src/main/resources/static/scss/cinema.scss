@@ -1,0 +1,305 @@
+@import 'global-frontend-settings/scss/_grid';
+@import 'global-frontend-settings/scss/_variables';
+
+$padding_within_cell: 8px;
+$spinner_height_plus_padding: 68px;
+$headline75: $font200;
+$headline100: $font250;
+
+.reco_cinema__bottom_line {
+  margin: 0 8px 8px;
+}
+
+.reco_cinema__call-to-action-icon {
+  font-family: $iconFontFamily;
+}
+
+.reco_cinema__call-to-action {
+  position: relative;
+  margin-top: 16px;
+}
+
+
+.reco_cinema {
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  line-height: normal;
+  padding: 16px $outer-grid-padding 32px $outer-grid-padding;
+
+  &__initialize { // used to make our cinema self-loading via onload event
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__headline {
+    @include font-size($headline75);
+    padding: 2 * $padding_within_cell 0 0 0;
+    font-family: $sansThinFontFamily;
+
+    @media (min-width: $large-width) {
+      @include font-size($headline100);
+    }
+  }
+
+  &__tiles {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    font-size: 0; // no space between tiles
+    word-spacing: 0;
+    overflow: hidden;
+
+    .touchable & {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  &__tile {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    vertical-align: top;
+    white-space: normal;
+    padding: 4px;
+    position: relative;
+
+    // initial width before js-calculation kicks in
+    width: percentage(1 / 2.5);
+    @media (width: $medium-width) {
+      width: percentage(1 / 3.5);
+    }
+    @media (width: $large-width) {
+      width: percentage(1 / 4.5);
+    }
+    @media (width: $extra-large-width) {
+      width: percentage(1 / 5.5);
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  &__desc {
+    text-align: left;
+    overflow: hidden;
+  }
+
+  &__article-brand {
+    @include font-size($font75);
+    text-transform: uppercase;
+    color: $grey300;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__article-name {
+    @include font-size($font100);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__nowrap {
+    white-space: nowrap;
+  }
+
+  &__uvp-string,
+  &__streich-price {
+    padding-right: $padding_within_cell;
+  }
+
+  &__price-red {
+    color: $red200;
+  }
+
+  &__streich-price {
+    text-decoration: line-through;
+  }
+
+  &__price-per-unit {
+    color: $grey300;
+  }
+
+  &__button-left,
+  &__button-right {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 150ms linear;
+
+    .touchable & {
+      display: none;
+    }
+
+    button {
+      width: 40px;
+      padding: 0;
+    }
+  }
+
+  &__button-left {
+    left: 0;
+  }
+
+  &__button-right {
+    right: 0;
+  }
+
+  &__button--hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s 1500ms, opacity 150ms linear;
+  }
+
+  &__adslink {
+    text-decoration: none;
+    flex: 1 0 auto;
+    overflow-y: auto;
+  }
+
+  &__image {
+    text-align: center;
+    padding-bottom: $padding_within_cell;
+    position: relative;
+    overflow: hidden;
+    min-height: $spinner_height_plus_padding;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      z-index: 10;
+    }
+  }
+
+  &__image__deal_badge {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 0;
+  }
+
+  &__sustainability_badge {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-left: 8px;
+    margin-bottom: 16px;
+  }
+
+  // PaLi spinner 'p_loader250' is 60x60 pixels and needs a centered box
+  &__image__spinner_box {
+    position: absolute;
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  // This separation from the rest was necessary to bypass the background processing done by Assets, which breaks on IE8
+  &__image__badge {
+    background-size: cover;
+  }
+
+  &__article-eek-container {
+    width: 110px;
+    padding-top: 8px;
+  }
+
+  &__article-eek-layer-container {
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  &__multi-eek-container {
+    padding-top: 8px;
+  }
+
+  &__multi-eek-container > div:first-of-type {
+    padding-top: unset;
+    display: inline;
+  }
+
+  &__article-eek-label {
+    margin-right: 18px;
+    margin-bottom: 8px;
+  }
+
+  &__add-to-basket {
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__add-to-basket-error {
+    display: none;
+    margin-top: 16px;
+  }
+
+  &__add-to-basket-success {
+    color: #198504;
+    display: block;
+    font-size: .75rem;
+    line-height: 1.5em;
+    min-height: 30px;
+    padding: 5px 9px;
+    text-align: center;
+  }
+
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.reco_cinema__article-eek-layer-title {
+  font-weight: 400;
+  font-size: 20px;
+  text-align: left;
+  padding: 0 16px 24px 20px;
+}
+
+.reco_basket_layer_cinema {
+  padding: 0;
+
+  .reco_cinema__headline {
+    text-align: center;
+  }
+}
+
+@media screen and (-ms-high-contrast: none) {
+  .entryPage{
+    display: none;
+  }
+}
+
+.reco_entry_page_cinema {
+  .reco_cinema__headline {
+    @include font-size($font150);
+    font-weight: 700;
+    font-family: $sansFontFamily;
+    padding-top: 2 * $padding_within_cell;
+    padding-bottom: 0;
+    @media (min-width: $large-width) {
+      @include font-size($font225);
+    }
+  }
+}

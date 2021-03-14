@@ -1,0 +1,156 @@
+// Abstract class to fortify patterns against other box-models
+%p_basisSettingsBoxSizingOnly {
+    box-sizing: border-box;
+}
+
+.p_accordion100,
+.p_accordion150 {
+    box-sizing: border-box;
+    @include font-size($font100, true);
+    width: 100%;
+}
+
+.p_accordion100 {
+    .p_accordion__header {
+        min-height: 40px;
+        padding: 9px 50px 9px 10px;
+
+        &:after {
+            @include font-size($font150, false);
+            height: 30px;
+            line-height: 28px;
+            top: 4px;
+            width: 30px;
+        }
+    }
+}
+
+.p_accordion150 {
+    .p_accordion__header {
+        @include font-size($font150);
+        min-height: 60px;
+        padding: 17px 60px 17px 20px;
+
+        &:after {
+            @include font-size($font225, false);
+            height: 40px;
+            line-height: 38px;
+            top: 9px;
+            width: 40px;
+        }
+    }
+
+    .p_accordion__content {
+        padding-left: 20px;
+    }
+}
+
+.p_accordion__header {
+    border-top: 1px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+
+    &:after {
+        border: 1px solid transparent;
+        border-radius: 50%;
+        content: "\E925";
+        display: block;
+        font-family: $iconsFontFamily;
+        position: absolute;
+        right: 10px;
+        text-align: center;
+    }
+
+    &.p_accordion__header--open {
+        &:after {
+            content: "\E924";
+        }
+
+        + .p_accordion__content {
+            display: block;
+        }
+    }
+}
+
+.p_accordion__content {
+    display: none;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.p_accordion--1st {
+    .p_accordion__header {
+        background-color: $grey100;
+        border-bottom: 1px solid transparent;
+        margin-top: 2px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:after {
+            background-color: $white;
+            color: $black100;
+        }
+
+        &.p_accordion__header--open:after {
+            color: $grey400;
+        }
+    }
+
+    .not-touchable & {
+        > .p_accordion__header:hover {
+            background-color: $grey400;
+            color: $white;
+        }
+
+        > .p_accordion__header--open:hover:after {
+            color: $black100;
+        }
+    }
+}
+
+.p_accordion--2nd,
+.p_accordion--3rd {
+    border-bottom: 1px solid $grey200;
+
+    .p_accordion__header {
+        background-color: $white;
+        border-top-color: $grey200;
+    }
+}
+
+.p_accordion--2nd {
+    .p_accordion__header {
+
+        &:after,
+        &.p_accordion__header--open:hover:after {
+            background-color: $grey25;
+            border: 1px solid $grey200;
+            color: $black50;
+        }
+    }
+}
+
+.not-touchable .p_accordion--2nd > .p_accordion__header:hover {
+    background-color: $grey100;
+}
+
+.p_accordion--3rd {
+    .p_accordion__header:after {
+        @include font-size($font200, false);
+        // fix for ie underline bug
+        height: 25px;
+        overflow: hidden;
+    }
+
+    .p_accordion__header.p_accordion__header--open:after {
+        color: $black50;
+    }
+}
+
+.not-touchable .p_accordion--3rd > .p_accordion__header:hover {
+    text-decoration: underline;
+}

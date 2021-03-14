@@ -1,0 +1,27 @@
+@import "global-frontend-settings/scss/variables";
+@import "../../imports/own_frontend_settings/grid";
+
+.sp_accordion {
+    margin-bottom: 2 * $grid-padding;
+    overflow: hidden;
+    padding-left: $grid-padding;
+    padding-right: $grid-padding;
+    width: 100%;
+
+    img {
+        max-width: 100%;
+    }
+
+    .sp_refSymbol {
+        background-color: $black50;
+        border-radius: 50%;
+        color: $white;
+        display: inline-block;
+        font-size: 11px;
+        height: 18px;
+        line-height: 18px;
+        text-align: center;
+        width: 18px;
+    }
+
+}

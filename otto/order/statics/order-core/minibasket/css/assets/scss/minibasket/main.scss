@@ -1,0 +1,127 @@
+@import "../order_page_imports";
+
+.or_minis {
+  box-sizing: border-box;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-decoration: none !important; // always overwrite styling for link masking from ub64e
+  display: block;
+  padding-top: 4px;
+  cursor: pointer;
+
+  @include susy-breakpoint($breakpoint-large...) {
+    width: 65px;
+    padding-top: 0;
+  }
+}
+
+.or_minis__icon {
+  display: block;
+  @include font-size((font-size: 30px, line-height: 31px));
+
+  @include susy-breakpoint($breakpoint-large...) {
+    @include font-size((font-size: 24px, line-height: 28px));
+  }
+}
+
+.or_minis__text {
+  display: none;
+  @include font-size((font-size: 12px, line-height: 14px));
+
+  @include susy-breakpoint($breakpoint-large...) {
+    display: block;
+  }
+}
+
+.or_minibasket {
+  .or_minis__badge {
+    background-color: $red100;
+    position: absolute;
+    left: 20px;
+    top: 21px;
+
+    @include susy-breakpoint($breakpoint-large...) {
+      left: 32px;
+      top: 15px;
+    }
+  }
+
+  .or_minis__badge--empty {
+    display: none;
+  }
+}
+
+// Part of Onex E361.
+.find_header.find_header--reduced {
+  .or_minis{
+    padding-top: 0;
+    width: auto;
+  }
+  .or_minis__icon {
+    color: $grey400;
+    font-size: 24px;
+    line-height: 1.6em;
+    @include susy-breakpoint($breakpoint-large...) {
+      @include font-size((font-size: 24px, line-height: 28px));
+    }
+  }
+  .or_minis__text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: $grey400;
+    display: none;
+    @include susy-breakpoint($breakpoint-large...) {
+      display: block;
+      @include font-size((font-size: 12px, line-height: 14px));
+    }
+  }
+  .or_minis__badge {
+    background-color: $red100;
+    position: absolute;
+    left: 20px;
+    top: 13px;
+
+    @include susy-breakpoint($breakpoint-large...) {
+      left: 32px;
+      top: 13px;
+    }
+  }
+}
+
+.find_header:not(.find_header--reduced) {
+  .or_minis{
+    padding-top: 0;
+    width: auto;
+  }
+
+  .or_minis__icon {
+    color: $grey400;
+    line-height: 1.16667em;
+    @include font-size($font225, false);
+  }
+  .or_minis__text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    color: $grey400;
+    @include font-size((font-size: 10px, line-height: 12px));
+    @include susy-breakpoint($breakpoint-large...) {
+      @include font-size((font-size: 12px, line-height: 14px));
+    }
+  }
+
+  .or_minis__badge {
+    background-color: $red100;
+    position: absolute;
+    left: 20px;
+    top: 13px;
+
+    @include susy-breakpoint($breakpoint-large...) {
+      left: 32px;
+      top: 13px;
+    }
+  }
+}
+// END Part of Onex E361.

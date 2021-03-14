@@ -1,0 +1,84 @@
+@mixin labelFloated {
+  background-color: #fff;
+  color: $grey400;
+  // 16px * 0.75 = 12px
+  transform: translate(0.5em, -0.5em) scale(0.75);
+  padding: 0 4px;
+  cursor: pointer;
+  width: auto;
+  transition: transform 0.2s, all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  .p_input--invalid &,
+  .p_dropdown--invalid &,
+  .p_textarea--invalid & {
+    color: $red100;
+  }
+
+  .p_input--hint & {
+    color: $hint-inverted-color;
+  }
+
+  .p_input--valid & {
+    color: $success-inverted-color;
+  }
+}
+
+.p_label {
+  @extend %p_input;
+  position: absolute;
+  user-select: none;
+  overflow: hidden;
+  color: $grey400; // #777777
+  display: inline-block;
+  left: 0.4em;
+  margin: 0;
+  line-height: 20px;
+  /* Animation von hier geborgt https://material.io/components/text-fields*/
+  transition: transform 0.2s, all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: 0 0;
+  top: 0;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  .p_dropdown & {
+    transition: none;
+  }
+
+  .p_input--invalid &,
+  .p_dropdown--invalid &,
+  .p_textarea--invalid & {
+    color: $red100;
+  }
+
+  .p_input--hint & {
+    color: $hint-inverted-color;
+  }
+
+  .p_input--valid & {
+    color: $success-inverted-color;
+  }
+}
+
+.js-p_label {
+  /* stop animation on page load */
+  transition: none;
+}
+
+// das Label verzieht sich nach oben, wenn der Input im Fokus oder mit Text befüllt ist
+
+.p_input__field:focus,
+.p_textarea__element:focus,
+.p_textarea__element:not([value=""]),
+.p_input__field:not([value=""]),
+.p_dropdown__element[value]:not([value=""]) {
+  + .p_label {
+    @include labelFloated;
+  }
+}
+
+.p_input__field:not(:placeholder-shown),
+.p_textarea__element:not(:placeholder-shown) {
+  + .p_label {
+    @include labelFloated;
+  }
+}

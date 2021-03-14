@@ -1,0 +1,385 @@
+@import "../../../../node_modules/@otto-ec/global-frontend-settings/all";
+
+$s-and-m-mq: 'not all and (min-width: #{$large-width})';
+$xl-mq: '(min-width: #{$extra-large-width})';
+$l-and-xl-mq: '(min-width: #{$large-width})';
+$l-mq: '(min-width: #{$large-width}) and (max-width: #{$extra-large-width - 0.001em})';
+$m-mq: '(min-width: #{$medium-width}) and (max-width: #{$large-width - 0.001em})';
+$m-and-up-mq: '(min-width: #{$medium-width})';
+
+.flatPromo100_1st {
+  background: $red100;
+}
+
+.flatPromo100_2nd {
+  background: $grey400;
+}
+
+.flatPromo100_3rd {
+  background: $grey50;
+}
+
+.headline_1st {
+  color: $white;
+}
+
+.headline_2nd {
+  color: $white;
+}
+
+.headline_3rd {
+  color: $black100;
+}
+
+.subline_1st {
+  color: $white;
+}
+
+.subline_2nd {
+  color: $white;
+}
+
+.subline_3rd {
+  color: $grey400;
+}
+
+.up-teaser-100_ENTRYPAGE, .up-teaser-100_MEINKONTO, .up-teaser-100_MEINKONTO_RENEW, .up-teaser-100_PRODUCTLIST, .up-teaser-100_FLAT_100_THIRD, .up-teaser-100_MEINKONTO_UP_SUBSCRIPTION {
+  visibility: visible !important;
+  margin-left: 8px;
+  margin-right: 8px;
+  height: 50px !important;
+  @media #{$l-and-xl-mq} {
+    text-align: center;
+  }
+
+  @media #{$l-mq} {
+    height: 70px !important;
+  }
+
+  &_top {
+    display: block;
+  }
+
+  &_link {
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  &_headline {
+    @include font-size($font150);
+    font-weight: bold;
+    font-family: $sansFontFamily;
+    display: inline-block;
+    @media #{$s-and-m-mq} {
+      display: block;
+      // @include font-size($font100);
+      font-size: .875rem;
+      line-height: .9rem;
+    }
+  }
+
+  &_subline {
+    @include font-size($font100);
+    font-weight: normal;
+    display: inline-block;
+  }
+
+  &_box {
+    display: table;
+    @media #{$l-mq} {
+      max-width: 400px;
+      display: inline-block;
+      text-align: left;
+    }
+    @media #{$xl-mq} {
+      max-width: 555px;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
+  &_right {
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 13px;
+    @media #{$s-and-m-mq} {
+      padding-top: 10px;
+    }
+  }
+
+  &_left {
+    display: table-cell;
+    padding-top: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+    @media #{$s-and-m-mq} {
+      padding-top: 10px;
+    }
+  }
+
+  &_logo {
+    width: 40px;
+    @media #{$s-and-m-mq} {
+      width: 24px;
+    }
+  }
+
+  &_arrow {
+    @include font-size($font125);
+    display: inline;
+    // padding-right: 8px;
+  }
+
+  .EXPIRY, .RENEW {
+    @media #{$xl-mq} {
+      max-width: 700px !important;
+    }
+    @media #{$l-mq} {
+      text-align: left;
+      max-width: 440px !important;
+      display: inline-block;
+    }
+  }
+}
+
+.up-teaser-100_ENTRYPAGE {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.up-teaser-100_PRODUCTLIST {
+  margin-top: 32px !important;
+}
+
+.up-teaser-100_MEINKONTO_UP_SUBSCRIPTION {
+  height: auto !important;
+  padding-bottom: 8px !important;
+
+  &_headline {
+    @include font-size($font175);
+    @media #{$s-and-m-mq} {
+      display: block;
+      // @include font-size($font100);
+      font-size: .875rem;
+      line-height: .9rem;
+    }
+  }
+
+  &_box {
+    text-align: left !important;
+  }
+
+  &_info {
+    @include font-size($font100);
+    font-weight: normal;
+    display: inline-block;
+    padding-right: 8px;
+    cursor: pointer;
+  }
+
+  &_link {
+    cursor: auto !important;
+  }
+
+  &_infoText {
+    @include font-size($font100);
+    font-weight: normal;
+  }
+
+  &_left {
+    padding-top: 12px !important;
+  }
+}
+
+.up-teaser-100_BASKET {
+  visibility: visible !important;
+  margin-top: 16px;
+  height: 50px !important;
+
+  &_top {
+    display: block;
+  }
+
+  &_link {
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  &_headline {
+    @include font-size($font175);
+    font-weight: bold;
+    font-family: $sansFontFamily;
+    display: block;
+    // @include font-size($font100);
+    font-size: .875rem;
+    line-height: .9rem;
+  }
+
+  &_subline {
+    @include font-size($font100);
+    font-weight: normal;
+    display: inline-block;
+  }
+
+  &_box {
+    display: table;
+  }
+
+  &_right {
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 10px;
+  }
+
+  &_left {
+    display: table-cell;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 10px;
+  }
+
+  &_logo {
+    width: 24px;
+  }
+
+  &_arrow {
+    @include font-size($font125);
+    display: inline;
+    padding-right: 8px;
+  }
+}
+
+.up-teaser-100_DETAILVIEW {
+  visibility: visible !important;
+  height: 50px !important;
+
+  &_top {
+    display: block;
+  }
+
+  &_link {
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  &_headline {
+    @include font-size($font175);
+    font-weight: bold;
+    font-family: $sansFontFamily;
+    display: block;
+    // @include font-size($font100);
+    font-size: .875rem;
+    line-height: .9rem;
+  }
+
+  &_subline {
+    @include font-size($font100);
+    font-weight: normal;
+    display: inline-block;
+  }
+
+  &_box {
+    display: table;
+  }
+
+  &_right {
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 10px;
+  }
+
+  &_left {
+    display: table-cell;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 10px;
+  }
+
+  &_logo {
+    width: 24px;
+  }
+
+  &_arrow {
+    @include font-size($font125);
+    display: inline;
+    padding-right: 8px;
+  }
+}
+
+.up-vkp {
+  visibility: visible !important;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  margin-left: 8px;
+  margin-right: 8px;
+  height: 104px !important;
+  background-color: $grey100;
+  display: block;
+  text-decoration: none;
+  @media #{$l-and-xl-mq} {
+    text-align: center;
+  }
+
+  &_left {
+    display: table-cell;
+    padding-left: 4px;
+    padding-right: 8px;
+    padding-top: 12px;
+    @media #{$l-and-xl-mq} {
+      padding-right: 16px;
+    }
+  }
+
+  &_box {
+    display: table;
+    text-align: left;
+    @media #{$l-and-xl-mq} {
+      max-width: 548px;
+      display: inline-block;
+    }
+  }
+
+  &_right {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 8px;
+    @include font-size($font175);
+    color: $black100;
+    @media #{$m-mq} {
+      @include font-size($font200);
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+    @media #{$l-and-xl-mq} {
+      padding-top: 22px;
+      padding-bottom: 22px;
+      @include font-size($font225);
+    }
+  }
+
+  &_logo {
+    width: 80px;
+  }
+
+  &_subline {
+    @media #{$m-and-up-mq} {
+      display: block;
+    }
+    font-weight: bold;
+  }
+
+  &_price {
+    white-space: nowrap;
+  }
+
+  &_arrow {
+    @include font-size($font225);
+    display: inline;
+    padding-right: 8px;
+  }
+}

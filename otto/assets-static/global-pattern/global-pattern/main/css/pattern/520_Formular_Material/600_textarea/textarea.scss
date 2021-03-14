@@ -1,0 +1,39 @@
+.p_textarea {
+  margin: 6px 0 24px 0;
+  position: relative;
+
+  &__element {
+    padding: 9px 16px;
+    width: 100%;
+    color: $black;
+    outline: none;
+    border-radius: 2px;
+    display: block;
+    border: 1px solid $grey200;
+    @include font-size($font125, true);
+
+    /* hide placehholder */
+    &::placeholder {
+      color: transparent;
+    }
+    &:focus {
+      border-color: $black;
+    }
+    .p_textarea--invalid & {
+      border-color: $red100;
+    }
+  }
+
+  &--invalid {
+    .p_textarea__note {
+      color: $red100;
+    }
+  }
+
+  &__note {
+    display: block;
+    margin: 10px 0 0 16px;
+    color: $grey400;
+    @include font-size($font75, false);
+  }
+}

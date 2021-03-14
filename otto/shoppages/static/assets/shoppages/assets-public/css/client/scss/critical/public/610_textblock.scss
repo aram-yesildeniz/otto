@@ -1,0 +1,36 @@
+@import "../../imports/own_frontend_settings/grid";
+@import "global-frontend-settings/scss/variables";
+
+.sp_textBlock {
+    margin-bottom: 2 * $grid-padding;
+    overflow: hidden;
+    padding-left: $grid-padding;
+    padding-right: $grid-padding;
+    width: 100%;
+
+    img {
+        max-width: 100%;
+    }
+
+    //if there is an experiment and we provide an empty textblock we need to reverse the margins (BS)
+    &.empty {
+        margin-bottom: 0;
+    }
+
+    .sp_refSymbol {
+        background-color: $black50;
+        border-radius: 50%;
+        color: $white;
+        display: inline-block;
+        font-size: 11px;
+        height: 18px;
+        line-height: 18px;
+        text-align: center;
+        width: 18px;
+    }
+
+    .sp_headline150_red {
+        color: $red100;
+        margin-bottom: 10px;
+    }
+}

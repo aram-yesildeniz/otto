@@ -1,0 +1,167 @@
+.user_system_rwd {
+    .us_showBenefitCardContainer {
+        background-image: linear-gradient($white, $grey100);
+        text-align: center;
+        margin: 8px 0 -12px 0;
+
+        @media only screen and (max-height: 450px) and (orientation: landscape) {
+            height: 100vh;
+        }
+
+        @include susy-breakpoint($breakpoint-large...) {
+            margin: 8px 8px -12px 8px;
+        }
+    }
+
+    .us_showBenefitCardFlipArea {
+        display: inline-block;
+        position: relative;
+        margin: 24px 0;
+        transition: all 0.6s cubic-bezier(0.420, 0.000, 0.580, 1.000);
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        top: 50%;
+
+        @media only screen and (max-height: 450px) and (orientation: landscape) {
+            transform: translateY(-50%);
+            margin: 0;
+        }
+
+        @include susy-breakpoint($breakpoint-large...) {
+            @media only screen and (min-height: 451px) {
+                margin: 111px 0px 66px 0px;
+            }
+        }
+
+        &.us_flippedBenefitCard {
+            transform: rotateY(180deg);
+
+            @media only screen and (max-height: 450px) and (orientation: landscape) {
+                transform: translateY(-50%) rotateY(180deg);
+            }
+        }
+
+        &.us_switchBenefitCardImage {
+
+            transition: none;
+
+            .us_showBenefitCardFrontImage {
+                display: none;
+            }
+
+            .us_showBenefitCardBackImage {
+                backface-visibility: visible;
+                transform: scaleX(1);
+            }
+
+        }
+    }
+
+    .us_showBenefitCardImage {
+        z-index: 2;
+        width: 300px;
+        -moz-border-radius: 14px;
+        -webkit-border-radius: 14px;
+        border-radius: 14px;
+
+        box-shadow: 1px 6px 7px rgba(34, 34, 34, 0.6);
+
+        @media only screen and (max-height: 450px) and (orientation: landscape) {
+            width: 437px;
+            margin: 0;
+        }
+
+        @include susy-breakpoint($breakpoint-large...) {
+            width: 343px;
+        }
+    }
+
+    .us_showBenefitCardFrontImage {
+        position: absolute;
+        backface-visibility: hidden;
+
+        .us_cardHolderNameArea {
+            text-align: right;
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+
+            @media only screen and (max-height: 450px) and (orientation: landscape) {
+                bottom: 10px;
+                right: 12px;
+            }
+
+            @include susy-breakpoint($breakpoint-large...) {
+                bottom: 8px;
+                right: 8px;
+            }
+
+            &.us_hide {
+                opacity: 0;
+            }
+
+            .us_userName {
+                display: block;
+                @include font-size($font100);
+
+                @media only screen and (max-height: 450px) and (orientation: landscape) {
+                    @include font-size($font125);
+                }
+
+                @include susy-breakpoint($breakpoint-large...) {
+                    @include font-size($font100);
+                }
+            }
+
+            .us_accountNumber {
+                @include font-size($font75);
+            }
+
+            .us_accountNumberValue {
+                @include font-size($font100);
+
+                @media only screen and (max-height: 450px) and (orientation: landscape) {
+                    @include font-size($font125);
+                }
+
+                @include susy-breakpoint($breakpoint-large...) {
+                    @include font-size($font100);
+                }
+            }
+        }
+
+        .us_benefitCardInteractionIcon {
+            background: rgba(255,255,255,.5);
+            border-radius: 10px;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            max-width: 80px;
+            overflow: visible;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: opacity .5s, clip 0s;
+            opacity: 0;
+
+            &.us_iconFadeIn {
+                opacity: 1;
+            }
+
+            &.us_iconFadeOut {
+                opacity: 0;
+                transition-delay: 0s, 0.5s;
+            }
+        }
+    }
+
+    .us_showBenefitCardBackImage {
+        display: inline-block;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        text-align: left;
+    }
+}

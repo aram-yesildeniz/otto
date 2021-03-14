@@ -1,0 +1,73 @@
+// START: message
+.p_message {
+  box-sizing: border-box;
+  @include font-size($font100, true);
+  padding: 10px 15px;
+  position: relative;
+
+  &__link {
+    &:hover {
+      opacity: 0.7;
+    }
+
+    i {
+      display: inline-block;
+      font-family: $iconsFontFamily;
+      font-size: 0.75em;
+      font-style: normal;
+    }
+  }
+}
+
+.p_message--error {
+  background-color: $error-background-color;
+  color: $error-font-color;
+
+  .p_message__button {
+    color: $error-font-color;
+  }
+}
+
+.p_message--warning {
+  background-color: $warning-background-color;
+  color: $warning-font-color;
+
+  .p_message__button {
+    color: $warning-font-color;
+  }
+}
+
+.p_message--hint {
+  background-color: $hint-background-color;
+  color: $hint-font-color;
+
+  .p_message__button {
+    color: $hint-font-color;
+  }
+}
+
+.p_message--success {
+  background-color: $success-background-color;
+  color: $success-font-color;
+
+  .p_message__button {
+    color: $success-font-color;
+  }
+}
+
+.p_message__button {
+  background: transparent;
+  border: medium none;
+  cursor: pointer;
+  width: 26px;
+  float: right;
+  font-family: $iconsFontFamily;
+  height: 26px;
+  margin: 0;
+  outline: 0 none;
+  padding: 0;
+  position: relative;
+  right: -8px;
+  text-align: center;
+  top: -3px;
+}

@@ -1,0 +1,141 @@
+/// Sets hover state for non-touch-devices and active state for touch-devices
+@mixin set-hover-and-active-style() {
+    .not-touchable & {
+        &:hover {
+            @content
+        }
+    }
+
+    .touchable & {
+        &:active {
+            @content
+        }
+    }
+}
+
+/// DropButton
+.p_dropBtn {
+    overflow: visible;
+    position: relative;
+
+    // Styling of the arrow down of the button.
+    .p_dropBtn__trigger,
+    .p_dropBtn__trigger--textless {
+        padding-left: 6px;
+        padding-right: 6px;
+
+        &:after {
+            font-family: $iconsFontFamily !important;
+            font-style: normal;
+            content: "\E925";
+            display: inline-block;
+            padding: 0 0 0 10px;
+            vertical-align: bottom;
+        }
+    }
+
+    // Add padding to arrow, if additional text exists.
+    .p_dropBtn__trigger--textless {
+        &:after {
+            padding-left: 0px;
+        }
+    }
+
+    &--open {
+        // Change trigger button styling in open state.
+        .p_dropBtn__trigger,
+        .p_dropBtn__trigger--textless {
+            position: relative;
+            border: 1px solid $grey200;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background: #FEFEFE;
+            color: $black50;
+            z-index: 3;
+            overflow: visible;
+            text-decoration: none;
+            // Extend the button with a content block at the bottom.
+            &:before {
+                content: " ";
+                display: block;
+                position: absolute;
+                bottom: -10px;
+                left: -1px;
+                right: -1px;
+                height: 11px;
+                border-left: 1px solid $grey200;
+                border-right: 1px solid $grey200;
+                background-color: $white;
+            }
+
+            // Change arrow from down to up, if dropdown is open.
+            &:after {
+                content: "\E924";
+            }
+
+            // Override hover and active styles for all four button ranks.
+            @include set-hover-and-active-style {
+                background: #FEFEFE;
+                color: #D5281E;
+            }
+        }
+
+        // Another special case for Button50 and -100, but only in the 1st, 2nd and 4th rank.
+        // Because these have no border, but getting a border in open state the padding-top and -bottom must be overall 2px less...
+        .p_btn50--1st,
+        .p_btn50--2nd,
+        .p_btn50--4th {
+            &.p_dropBtn__trigger,
+            &.p_dropBtn__trigger--textless {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+        }
+        .p_btn100--1st,
+        .p_btn100--2nd,
+        .p_btn100--4th {
+            &.p_dropBtn__trigger,
+            &.p_dropBtn__trigger--textless {
+                padding-top: 7px;
+                padding-bottom: 7px;
+            }
+        }
+    }
+
+    &.p_dropBtn--error {
+        .p_dropBtn__content {
+            width: 260px;
+            white-space: normal;
+
+            .p_message--error {
+                margin: 0;
+            }
+        }
+    }
+
+    // Styles of the dropdown content box.
+    .p_dropBtn__content {
+        box-sizing: border-box;
+        @include font-size($font100, true);
+        border-radius: 0 0 3px 3px;
+        position: absolute;
+        min-width: 100%;
+        right: 0;
+        padding: 16px;
+        margin-top: 8px;
+        text-align: left;
+        border: 1px solid #C2C2C2;
+        white-space: nowrap;
+        background: $white;
+        z-index: 2;
+    }
+
+    .p_dropBtn__content--left {
+        right: auto;
+        left: 0;
+    }
+
+    .p_dropBtn__content--hidden {
+        display: none;
+    }
+}

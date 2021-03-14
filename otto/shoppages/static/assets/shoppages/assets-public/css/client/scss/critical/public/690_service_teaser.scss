@@ -1,0 +1,106 @@
+@import "susy/sass/susy";
+@import "global-frontend-settings/scss/grid";
+@import "global-frontend-settings/scss/variables";
+@import "global-frontend-settings/scss/mixins";
+@import "../../imports/own_frontend_settings/grid";
+
+$imageHeightInCroppedLWithNavigation: 300px;
+$imageWidthInCroppedLWithNavigation: 704px;
+
+.sp_teaser.sp_serviceTeaser {
+
+    .sp_teaserImage {
+        margin-bottom: 0;
+        padding-top: $imageHeightInCroppedLWithNavigation / $imageWidthInCroppedLWithNavigation * 100%;
+    }
+
+    .sp_serviceTeaserContentArea {
+        margin-top: -48px;
+        text-align: center;
+        @include susy-breakpoint($breakpoint-large...) {
+            margin-top: -139px;
+        }
+
+        .sp_serviceTeaserIcons {
+            height: 40px;
+            margin-bottom: $grid-padding;
+            @include susy-breakpoint($breakpoint-large...) {
+                height: 67px;
+                margin-bottom: 1.5 * $grid-padding;
+            }
+
+            a {
+                display: inline-block;
+                margin: 0 $grid-padding;
+
+                img {
+                    height: 40px;
+                    width: 40px;
+                    @include susy-breakpoint($breakpoint-large...) {
+                        height: 67px;
+                        width: 67px;
+                    }
+                }
+
+                &:nth-child(6) {
+                    display: none;
+                    @include susy-breakpoint($breakpoint-medium...) {
+                        display: inline-block;
+                    }
+                }
+
+                &:hover img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        .sp_serviceTeaserContent {
+            background-color: $service-color;
+            color: $white;
+            @include susy-breakpoint($breakpoint-large...) {
+                height: 60px;
+            }
+
+            .sp_serviceTeaserHeadline {
+                @include font-size($font200, false);
+                font-family: $sansFontFamily;
+                line-height: 40px;
+                @include susy-breakpoint($breakpoint-large...) {
+                    @include font-size($font250);
+                    font-family: $sansThinFontFamily;
+                    padding-top: $grid-padding / 2;
+                }
+            }
+
+            //when no subheadline exists -> headline should be centered and area 60px high
+            &.sp_serviceTeaserNoSubHeadline .sp_serviceTeaserHeadline {
+                @include susy-breakpoint($breakpoint-large...) {
+                    line-height: 60px;
+                    padding-top: 0;
+                }
+            }
+
+            .sp_serviceTeaserSubHeadline {
+                display: none;
+                @include susy-breakpoint($breakpoint-large...) {
+                    display: block;
+                }
+            }
+        }
+
+        .sp_serviceTeaserContentRed {
+            background-color: #C0241B;
+        }
+
+        .sp_serviceTeaserContentYellow {
+            background-color: $service-color;
+        }
+    }
+}
+
+.contentWithSidebar .sp_teaser.sp_serviceTeaser .sp_teaserImage {
+    @include susy-breakpoint($breakpoint-large...) {
+        height: $imageHeightInCroppedLWithNavigation;
+    }
+}

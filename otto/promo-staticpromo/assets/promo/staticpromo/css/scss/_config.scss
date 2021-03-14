@@ -1,0 +1,31 @@
+@import "global-frontend-settings/scss/_grid";
+
+// How can I avoid media query overlap? http://stackoverflow.com/a/13649011
+$s-and-m-mq: "not all and (min-width: #{$large-width})";
+
+$s-mq: "not all and (min-width: #{$medium-width})";
+
+// This definition includes the first 0.001em of the large breakpoint
+$m-mq: "(min-width: #{$medium-width}) and (max-width: #{$large-width - 0.001em})";
+
+// This definition includes the first 0.001em of the extra-large breakpoint
+$l-mq: "(min-width: #{$large-width}) and (max-width: #{$extra-large-width - 0.001em})";
+
+$s-m-and-l-mq: "not all and (min-width: #{$extra-large-width})";
+
+@mixin respond-to($mq) {
+
+    @at-root .promo_beResponsive #{&} {
+        @media #{$mq} {
+            @content;
+        }
+    }
+}
+
+$otto-standard-separation: 8px;
+
+$sliding-cinema-widget-padding: 55px;
+
+$headline-padding-legacy: 30px $outer-grid-padding 18px $outer-grid-padding;
+$headline-padding: 24px 0 16px 0;
+

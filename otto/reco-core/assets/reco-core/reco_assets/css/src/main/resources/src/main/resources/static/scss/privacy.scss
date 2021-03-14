@@ -1,0 +1,49 @@
+@import 'global-frontend-settings/scss/_variables';
+
+.reco_privacy {
+
+  &__info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  &__cancel {
+    display: inline-block;
+    width: 30%;
+  }
+
+  &__opt_in,
+  &__opt_out {
+    display: inline-block;
+    width: 57%;
+  }
+}
+
+.reco_container {
+  position: relative;
+  visibility: visible !important;
+}
+
+.reco_info {
+  &__box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+
+    > .reco_cinema__headline {
+      padding-bottom: 2px;
+      padding-right: 16px;
+      padding-top: 0;
+    }
+  }
+
+  &__icon {
+    line-height: 20px;
+    font-size: 0.8em;
+    color: $grey300;
+    padding-bottom: 2px;
+  }
+}
