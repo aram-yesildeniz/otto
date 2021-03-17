@@ -17,7 +17,7 @@ o_user.newsletter.snippet.serviceBuilder = function (ajaxUtil) {
     var servletContext = '/user';
 
     function loadNewsletterSnippetContent(successHandler, errorHandler) {
-        ajaxUtil.get(servletContext + 'test/subscribeToNewsletterSnippetContent')
+        ajaxUtil.get(servletContext + 'test/user/subscribeToNewsletterSnippetContent')
             .then(function (xhr) {
                 if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
                     successHandler(xhr);
@@ -125,7 +125,9 @@ o_user.newsletter.snippet.presenterBuilder = function (document, service, view, 
 
     function registerEventHandler() {
         eventUtil.delegate(document, "focus", "#us_id_newsletterSnippetEmail", function () {
-            tracking.sendTrackingInformation({"user_PermissionNewsletterSnippet_legalText": "shown"}, "event");
+            tracking.sendTrackingInformation({
+                "user_PermissionNewsletterSnippet_legalText": "shown"
+            }, "event");
             view.showNewsletterLegalText();
         }, true);
 
@@ -140,7 +142,9 @@ o_user.newsletter.snippet.presenterBuilder = function (document, service, view, 
         });
 
         eventUtil.delegate(document, "click", "#us_id_newsletterSnippetLegalTextExpander", function () {
-            tracking.sendTrackingInformation({"user_PermissionNewsletterSnippet_legalText": "shown"}, "event");
+            tracking.sendTrackingInformation({
+                "user_PermissionNewsletterSnippet_legalText": "shown"
+            }, "event");
         });
 
         eventUtil.delegate(document, "click", ".us_js_newsletterSnippetButton", function () {
@@ -149,14 +153,17 @@ o_user.newsletter.snippet.presenterBuilder = function (document, service, view, 
     }
 
     function triggerLoadNewsletterSnippetContent() {
-        var isNewsletterSnippetContainerPresent = view.checkForNewsletterSnippetContainer(), trackingValue;
+        var isNewsletterSnippetContainerPresent = view.checkForNewsletterSnippetContainer(),
+            trackingValue;
 
         if (isNewsletterSnippetContainerPresent) {
             service.loadNewsletterSnippetContent(function (xhr) {
                 view.setNewsletterSnippetContent(xhr.responseText);
                 registerEventHandler();
                 trackingValue = xhr.getResponseHeader("X-Newsletter-Snippet");
-                tracking.sendTrackingInformation({user_NewsletterSnippet: trackingValue}, "merge");
+                tracking.sendTrackingInformation({
+                    user_NewsletterSnippet: trackingValue
+                }, "merge");
             }, undefined);
         }
     }
