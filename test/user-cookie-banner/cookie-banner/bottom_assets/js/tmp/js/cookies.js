@@ -1,9 +1,9 @@
 class Cookies {
     constructor(cookieUtil, ajaxUtil) {
         this._cbCookieName = "cb";
-        this._cbContext = "test/user-cookie-banner-cb";
-        this._acceptCbCookieEndpoint = "test/setExplicitCookie";
-        this._rejectCbCookieEndpoint = "test/setRejectCookie";
+        this._cbContext = "/user-cookie-banner-cb";
+        this._acceptCbCookieEndpoint = "/setExplicitCookie";
+        this._rejectCbCookieEndpoint = "/setRejectCookie";
         this._consentIdCookieName = "consentId";
         this._consentIdContext = "test/user-set-consent-id-cookie";
         this._iabConsentCookieName = "iabConsent";
