@@ -14,10 +14,10 @@ o_util.event = o_util.event || {};
 
 o_user.newsletter.snippet.serviceBuilder = function (ajaxUtil) {
     'use strict';
-    var servletContext = '/user';
+    var servletContext = '/test';
 
     function loadNewsletterSnippetContent(successHandler, errorHandler) {
-        ajaxUtil.get(servletContext + 'test/user/subscribeToNewsletterSnippetContent')
+        ajaxUtil.get(servletContext + '/user/subscribeToNewsletterSnippetContent')
             .then(function (xhr) {
                 if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
                     successHandler(xhr);

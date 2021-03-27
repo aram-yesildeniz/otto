@@ -3,7 +3,7 @@ var o_user = o_user || {},
     o_util = o_util || {};
 o_user.newsletter = o_user.newsletter || {}, o_user.newsletter.snippet = o_user.newsletter.snippet || {}, o_global.pali = o_global.pali || {}, o_util.ajax = o_util.ajax || {}, o_util.event = o_util.event || {}, o_user.newsletter.snippet.serviceBuilder = function (e) {
     "use strict";
-    var t = "/user";
+    var t = "/test";
     return {
         subscribe: function subscribe(n, s, r) {
             e({
@@ -16,7 +16,7 @@ o_user.newsletter = o_user.newsletter || {}, o_user.newsletter.snippet = o_user.
             }).catch(function () {});
         },
         loadNewsletterSnippetContent: function loadNewsletterSnippetContent(n, s) {
-            e.get(t + "test/user/subscribeToNewsletterSnippetContent").then(function (e) {
+            e.get(t + "/user/subscribeToNewsletterSnippetContent").then(function (e) {
                 e.status >= 200 && e.status < 300 || 304 === e.status ? n(e) : s();
             }).catch(function () {});
         }
